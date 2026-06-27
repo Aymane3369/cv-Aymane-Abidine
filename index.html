@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV Aymane Abidine</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
@@ -16,135 +15,126 @@
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background: #eef2f7;
+  padding: 20px;
   color: #1f2a37;
-  padding: 30px;
 }
 
 /* BUTTON */
 .download-btn {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .download-btn button {
   background: #111827;
   color: white;
   border: none;
-  padding: 12px 26px;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.2s;
 }
 
-.download-btn button:hover {
-  transform: scale(1.03);
-}
-
-/* CV CONTAINER */
+/* A4 FIX */
 .cv-container {
-  max-width: 1000px;
+  width: 210mm;
+  height: 297mm;
   margin: auto;
   background: white;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* HEADER */
+/* HEADER COMPACT */
 .header {
-  background: linear-gradient(135deg, #0f172a, #1f2937);
+  background: #111827;
   color: white;
-  padding: 30px;
+  padding: 12px 16px;
 }
 
 .header h1 {
-  font-size: 30px;
+  font-size: 18px;
 }
 
 .header p {
-  margin-top: 6px;
+  font-size: 12px;
   opacity: 0.85;
 }
 
 .contact {
+  font-size: 11px;
+  margin-top: 6px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 18px;
-  margin-top: 15px;
-  font-size: 13px;
+  gap: 10px;
 }
 
-/* CONTENT */
+/* CONTENT GRID */
 .content {
-  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  font-size: 11px;
 }
 
 /* SECTION */
 .section {
-  margin-bottom: 22px;
+  margin-bottom: 8px;
 }
 
-.section-title {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-left: 4px solid #111827;
-  padding-left: 10px;
-  margin-bottom: 10px;
+.title {
+  font-size: 11px;
+  font-weight: bold;
+  border-left: 3px solid #111827;
+  padding-left: 6px;
+  margin-bottom: 4px;
 }
 
 /* CARD */
 .card {
   background: #f8fafc;
-  padding: 14px 16px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  font-size: 10.5px;
+  line-height: 1.3;
 }
 
-/* EXPERIENCE */
-.exp-title {
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.exp-sub {
-  color: #2563eb;
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-
+/* LIST */
 ul {
-  padding-left: 18px;
+  padding-left: 14px;
 }
 
 li {
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 10.5px;
+  line-height: 1.25;
 }
 
-/* GRID */
-.grid {
+/* SMALL GRID */
+.small-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 6px;
 }
 
-/* PRINT */
+/* FORCE ONE PAGE PDF */
 @media print {
   body {
     background: white;
     padding: 0;
   }
+
   .download-btn {
     display: none;
   }
+
   .cv-container {
     box-shadow: none;
-    border-radius: 0;
   }
 }
 </style>
@@ -152,141 +142,108 @@ li {
 
 <body>
 
-<!-- BUTTON -->
 <div class="download-btn">
-  <button onclick="downloadPDF()">📄 Télécharger le PDF</button>
+  <button onclick="downloadPDF()">📄 Télécharger PDF 1 page</button>
 </div>
 
-<!-- CV -->
-<div class="cv-container" id="cv-content">
+<div class="cv-container" id="cv">
 
   <!-- HEADER -->
   <div class="header">
     <h1>Aymane Abidine</h1>
     <p>Ingénieur Génie Civil | Structures Béton Armé</p>
-
     <div class="contact">
       <span>📍 Villeurbanne</span>
       <span>📞 06 67 56 63 01</span>
       <span>✉️ aymane.abidine@gmail.com</span>
-      <span>LinkedIn</span>
-      <span>Disponible immédiatement</span>
+      <span>📌 Disponible immédiatement</span>
     </div>
   </div>
 
   <!-- CONTENT -->
   <div class="content">
 
-    <!-- PROFILE -->
-    <div class="section">
-      <div class="section-title">Profil</div>
-      <div class="card">
-        Ingénieur en génie civil spécialisé dans les structures béton armé, les études EXE et le suivi technique de projets.
-        Expérience en bureau d’études et chantier, de la conception à la réception des ouvrages.
-      </div>
-    </div>
+    <!-- LEFT -->
+    <div>
 
-    <!-- EXPERIENCE -->
-    <div class="section">
-      <div class="section-title">Expérience professionnelle</div>
-
-      <div class="card">
-        <div class="exp-title">Ingénieur Bureau d’Études</div>
-        <div class="exp-sub">Alpha Group (2025)</div>
-        <ul>
-          <li>Études techniques phase EXE</li>
-          <li>Conception de carnets de détails</li>
-          <li>Validation DOE et levée de réserves</li>
-          <li>Coordination MOE / entreprises</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="exp-title">Assistant Chargé d’Affaires</div>
-        <div class="exp-sub">Unistrain (2020 - 2021)</div>
-        <ul>
-          <li>Plans de ferraillage AutoCAD</li>
-          <li>Suivi chantier et bureau d’études</li>
-          <li>Coordination technique</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="exp-title">Stage Conducteur de Travaux</div>
-        <div class="exp-sub">Espace Rénovation</div>
-        <ul>
-          <li>Métrés et études quantitatives</li>
-          <li>Contrôle géométrique chantier</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- FORMATION -->
-    <div class="section">
-      <div class="section-title">Formation</div>
-      <div class="card">
-        Master Génie Civil – Université Lyon 1 (2024–2025)
-      </div>
-      <div class="card">
-        Licence Génie Civil – Université Lyon 1 (2021–2022)
-      </div>
-      <div class="card">
-        BTS Études et Économie de la Construction
-      </div>
-    </div>
-
-    <!-- SKILLS -->
-    <div class="section grid">
-
-      <div>
-        <div class="section-title">Compétences</div>
+      <div class="section">
+        <div class="title">Profil</div>
         <div class="card">
-          • Études EXE<br>
-          • DOE<br>
-          • Eurocodes<br>
-          • Coordination chantier
+          Ingénieur génie civil spécialisé béton armé, études EXE et suivi de projets. Expérience bureau d’études + chantier.
         </div>
       </div>
 
-      <div>
-        <div class="section-title">Logiciels</div>
+      <div class="section">
+        <div class="title">Expérience</div>
+
         <div class="card">
-          • AutoCAD<br>
-          • Robot Structural Analysis<br>
-          • Plaxis<br>
-          • Excel avancé
+          <b>Ingénieur BE - Alpha Group</b><br>
+          EXE, DOE, carnets de détails, coordination MOE
+        </div>
+
+        <div class="card">
+          <b>Assistant Chargé d’Affaires</b><br>
+          AutoCAD, ferraillage, suivi chantier
+        </div>
+
+        <div class="card">
+          <b>Stage Conducteur de Travaux</b><br>
+          Métrés, contrôle chantier
         </div>
       </div>
 
     </div>
 
-    <!-- PROJECTS -->
-    <div class="section">
-      <div class="section-title">Projets académiques</div>
-      <div class="card">
-        • Dimensionnement R+5 béton armé<br>
-        • Analyse sismique 3D<br>
-        • Structure mixte acier-béton<br>
-        • Stabilité et contreventement
+    <!-- RIGHT -->
+    <div>
+
+      <div class="section">
+        <div class="title">Compétences</div>
+        <div class="card">
+          EXE, DOE, Eurocodes, coordination chantier, contrôle qualité
+        </div>
       </div>
+
+      <div class="section">
+        <div class="title">Logiciels</div>
+        <div class="card">
+          AutoCAD, Robot, Plaxis, Excel avancé, MATLAB
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="title">Formation</div>
+        <div class="card">
+          Master Génie Civil – Lyon 1<br>
+          Licence Génie Civil – Lyon 1<br>
+          BTS Construction
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="title">Projets</div>
+        <div class="card">
+          R+5 béton armé, analyse sismique, structure mixte acier-béton
+        </div>
+      </div>
+
     </div>
 
   </div>
+
 </div>
 
 <script>
 function downloadPDF() {
-  const element = document.getElementById("cv-content");
+  const element = document.getElementById("cv");
 
-  const opt = {
+  html2pdf().set({
     margin: 0,
-    filename: "CV_Aymane_Abidine.pdf",
+    filename: "CV_Aymane_Abidine_1page.pdf",
     image: { type: "jpeg", quality: 1 },
-    html2canvas: { scale: 3, useCORS: true },
+    html2canvas: { scale: 3 },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-  };
-
-  html2pdf().set(opt).from(element).save();
+  }).from(element).save();
 }
 </script>
 
