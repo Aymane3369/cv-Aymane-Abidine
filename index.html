@@ -165,7 +165,7 @@
     }
 
     /* ================================================================ */
-    /* ===== STYLES PDF - TAILLES ADAPTÉES POUR REMPLIR LA PAGE ===== */
+    /* ===== STYLES PDF - PAS DE PAGE BLANCHE ===== */
     /* ================================================================ */
 
     /* 1. Impression navigateur */
@@ -179,37 +179,39 @@
       #cv-content {
         width: 210mm;
         height: 297mm;
-        padding: 12mm 14mm;
+        padding: 10mm 12mm;  /* Réduit pour éviter débordement */
         box-shadow: none;
         border-radius: 0;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        overflow: hidden;
+        page-break-after: avoid;
+        page-break-inside: avoid;
       }
 
       .download-btn {
         display: none !important;
       }
 
-      /* ---- TAILLES AGRANDIES POUR REMPLIR LA PAGE ---- */
-      #cv-content .name { font-size: 22px; }
-      #cv-content .title { font-size: 12px; margin-top: 2px; }
-      #cv-content .subinfo { font-size: 10px; margin-top: 1px; }
-      #cv-content .contact { font-size: 10px; line-height: 1.5; }
-      #cv-content .header { padding-bottom: 8px; margin-bottom: 8px; border-bottom-width: 1.5px; }
-      #cv-content .section-title { font-size: 11px; margin-top: 10px; margin-bottom: 4px; padding-bottom: 2px; border-bottom-width: 1.5px; letter-spacing: 0.5px; }
-      #cv-content p { font-size: 10px; line-height: 1.4; margin: 0; }
-      #cv-content li { font-size: 9.5px; line-height: 1.3; }
-      #cv-content ul { margin-top: 1px; margin-bottom: 3px; padding-left: 14px; }
-      #cv-content ul li { margin-bottom: 1px; }
-      #cv-content .job-title { font-size: 10.5px; margin-top: 5px; }
-      #cv-content .date { font-size: 9.5px; }
-      .footer-row { gap: 15px; margin-top: 6px; }
-      .footer-row .section-title { font-size: 11px; margin-top: 6px; margin-bottom: 3px; padding-bottom: 2px; }
-      .footer-row ul { margin-top: 0px; margin-bottom: 1px; padding-left: 14px; }
-      .footer-row ul li { font-size: 9.5px; line-height: 1.3; margin-bottom: 1px; }
-      .footer-row p { font-size: 9.5px; line-height: 1.3; margin: 0; }
+      #cv-content .name { font-size: 20px; }
+      #cv-content .title { font-size: 11px; margin-top: 2px; }
+      #cv-content .subinfo { font-size: 9.5px; margin-top: 1px; }
+      #cv-content .contact { font-size: 9.5px; line-height: 1.4; }
+      #cv-content .header { padding-bottom: 6px; margin-bottom: 6px; border-bottom-width: 1.5px; }
+      #cv-content .section-title { font-size: 10.5px; margin-top: 8px; margin-bottom: 3px; padding-bottom: 2px; border-bottom-width: 1.5px; letter-spacing: 0.5px; }
+      #cv-content p { font-size: 9.5px; line-height: 1.35; margin: 0; }
+      #cv-content li { font-size: 9px; line-height: 1.25; }
+      #cv-content ul { margin-top: 1px; margin-bottom: 2px; padding-left: 13px; }
+      #cv-content ul li { margin-bottom: 0.5px; }
+      #cv-content .job-title { font-size: 10px; margin-top: 4px; }
+      #cv-content .date { font-size: 9px; }
+      .footer-row { gap: 12px; margin-top: 4px; }
+      .footer-row .section-title { font-size: 10.5px; margin-top: 4px; margin-bottom: 2px; padding-bottom: 2px; }
+      .footer-row ul { margin-top: 0px; margin-bottom: 1px; padding-left: 13px; }
+      .footer-row ul li { font-size: 9px; line-height: 1.25; margin-bottom: 0.5px; }
+      .footer-row p { font-size: 9px; line-height: 1.25; margin: 0; }
     }
 
     /* 2. Mode pdf-mode (pour html2canvas) – identique à @media print */
@@ -222,7 +224,7 @@
     .pdf-mode #cv-content {
       width: 210mm;
       height: 297mm;
-      padding: 12mm 14mm;
+      padding: 10mm 12mm;
       box-shadow: none !important;
       border-radius: 0 !important;
       overflow: hidden;
@@ -234,24 +236,23 @@
       background: white;
     }
 
-    /* ---- Mêmes tailles que print ---- */
-    .pdf-mode #cv-content .name { font-size: 22px; line-height: 1.1; }
-    .pdf-mode #cv-content .title { font-size: 12px; margin-top: 2px; line-height: 1.1; }
-    .pdf-mode #cv-content .subinfo { font-size: 10px; margin-top: 1px; line-height: 1.1; }
-    .pdf-mode #cv-content .contact { font-size: 10px; line-height: 1.5; }
-    .pdf-mode #cv-content .header { padding-bottom: 8px; margin-bottom: 8px; border-bottom-width: 1.5px; }
-    .pdf-mode #cv-content .section-title { font-size: 11px; margin-top: 10px; margin-bottom: 4px; padding-bottom: 2px; border-bottom-width: 1.5px; letter-spacing: 0.5px; }
-    .pdf-mode #cv-content p { font-size: 10px; line-height: 1.4; margin: 0; }
-    .pdf-mode #cv-content li { font-size: 9.5px; line-height: 1.3; }
-    .pdf-mode #cv-content ul { margin-top: 1px; margin-bottom: 3px; padding-left: 14px; }
-    .pdf-mode #cv-content ul li { margin-bottom: 1px; }
-    .pdf-mode #cv-content .job-title { font-size: 10.5px; margin-top: 5px; line-height: 1.2; }
-    .pdf-mode #cv-content .date { font-size: 9.5px; }
-    .pdf-mode .footer-row { gap: 15px; margin-top: 6px; }
-    .pdf-mode .footer-row .section-title { font-size: 11px; margin-top: 6px; margin-bottom: 3px; padding-bottom: 2px; }
-    .pdf-mode .footer-row ul { margin-top: 0px; margin-bottom: 1px; padding-left: 14px; }
-    .pdf-mode .footer-row ul li { font-size: 9.5px; line-height: 1.3; margin-bottom: 1px; }
-    .pdf-mode .footer-row p { font-size: 9.5px; line-height: 1.3; margin: 0; }
+    .pdf-mode #cv-content .name { font-size: 20px; line-height: 1.1; }
+    .pdf-mode #cv-content .title { font-size: 11px; margin-top: 2px; line-height: 1.1; }
+    .pdf-mode #cv-content .subinfo { font-size: 9.5px; margin-top: 1px; line-height: 1.1; }
+    .pdf-mode #cv-content .contact { font-size: 9.5px; line-height: 1.4; }
+    .pdf-mode #cv-content .header { padding-bottom: 6px; margin-bottom: 6px; border-bottom-width: 1.5px; }
+    .pdf-mode #cv-content .section-title { font-size: 10.5px; margin-top: 8px; margin-bottom: 3px; padding-bottom: 2px; border-bottom-width: 1.5px; letter-spacing: 0.5px; }
+    .pdf-mode #cv-content p { font-size: 9.5px; line-height: 1.35; margin: 0; }
+    .pdf-mode #cv-content li { font-size: 9px; line-height: 1.25; }
+    .pdf-mode #cv-content ul { margin-top: 1px; margin-bottom: 2px; padding-left: 13px; }
+    .pdf-mode #cv-content ul li { margin-bottom: 0.5px; }
+    .pdf-mode #cv-content .job-title { font-size: 10px; margin-top: 4px; line-height: 1.2; }
+    .pdf-mode #cv-content .date { font-size: 9px; }
+    .pdf-mode .footer-row { gap: 12px; margin-top: 4px; }
+    .pdf-mode .footer-row .section-title { font-size: 10.5px; margin-top: 4px; margin-bottom: 2px; padding-bottom: 2px; }
+    .pdf-mode .footer-row ul { margin-top: 0px; margin-bottom: 1px; padding-left: 13px; }
+    .pdf-mode .footer-row ul li { font-size: 9px; line-height: 1.25; margin-bottom: 0.5px; }
+    .pdf-mode .footer-row p { font-size: 9px; line-height: 1.25; margin: 0; }
 
     /* ===== RESPONSIVE ÉCRAN ===== */
     @media screen and (max-width: 950px) {
@@ -410,6 +411,7 @@
 
   <script>
     function downloadPDF() {
+      // 1. Activer le mode PDF
       document.body.classList.add('pdf-mode');
 
       const element = document.getElementById('cv-content');
