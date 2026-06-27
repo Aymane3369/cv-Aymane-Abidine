@@ -109,6 +109,7 @@
       font-size: 12px;
     }
 
+    /* ===== FOOTER EN DEUX COLONNES ===== */
     .footer-row {
       display: flex;
       gap: 20px;
@@ -129,10 +130,22 @@
       font-size: 13px;
     }
 
-    .footer-row p,
-    .footer-row div {
+    .footer-row ul {
+      margin-top: 1px;
+      margin-bottom: 2px;
+      padding-left: 18px;
+    }
+
+    .footer-row ul li {
       font-size: 12.5px;
-      line-height: 1.5;
+      line-height: 1.4;
+      margin-bottom: 0.5px;
+    }
+
+    .footer-row p {
+      font-size: 12.5px;
+      line-height: 1.4;
+      margin: 0;
     }
 
     /* ===== BOUTON ===== */
@@ -159,7 +172,7 @@
     }
 
     /* ================================================================ */
-    /* ===== MODE PDF - ULTRA COMPACT (toutes les sections) ===== */
+    /* ===== MODE PDF - REPRODUIT EXACTEMENT L'EXEMPLE ===== */
     /* ================================================================ */
     @media print {
       html,
@@ -172,7 +185,7 @@
       #cv-content {
         width: 210mm;
         height: 297mm;
-        padding: 3mm 10mm 3mm 10mm;   /* marges minimales */
+        padding: 4mm 11mm 4mm 11mm;
         box-shadow: none;
         border-radius: 0;
         display: flex;
@@ -181,59 +194,59 @@
         margin: 0 auto;
       }
 
-      /* ===== TAILLES TRÈS COMPACTES ===== */
+      /* ===== COMPACT ===== */
       #cv-content .name {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.0;
       }
 
       #cv-content .title {
-        font-size: 8px;
+        font-size: 8.5px;
         margin-top: 0px;
         line-height: 1.0;
       }
 
       #cv-content .subinfo {
-        font-size: 7px;
+        font-size: 7.5px;
         margin-top: 0px;
         line-height: 1.0;
       }
 
       #cv-content .contact {
-        font-size: 7px;
-        line-height: 1.1;
+        font-size: 7.5px;
+        line-height: 1.15;
       }
 
       #cv-content .header {
-        padding-bottom: 2px;
-        margin-bottom: 2px;
-        border-bottom-width: 0.8px;
+        padding-bottom: 3px;
+        margin-bottom: 3px;
+        border-bottom-width: 1px;
       }
 
       #cv-content .section-title {
-        font-size: 7.5px;
-        margin-top: 2px;
-        margin-bottom: 0.5px;
-        padding-bottom: 0.5px;
+        font-size: 8px;
+        margin-top: 3px;
+        margin-bottom: 1px;
+        padding-bottom: 1px;
         border-bottom-width: 0.8px;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.3px;
       }
 
       #cv-content p {
-        font-size: 6.5px;
-        line-height: 1.05;
+        font-size: 7px;
+        line-height: 1.1;
         margin: 0;
       }
 
       #cv-content li {
-        font-size: 6.2px;
-        line-height: 1.0;
+        font-size: 6.8px;
+        line-height: 1.05;
       }
 
       #cv-content ul {
         margin-top: 0px;
-        margin-bottom: 0.5px;
-        padding-left: 8px;
+        margin-bottom: 1px;
+        padding-left: 10px;
       }
 
       #cv-content ul li {
@@ -241,31 +254,43 @@
       }
 
       #cv-content .job-title {
-        font-size: 7px;
-        margin-top: 1.5px;
-        line-height: 1.0;
+        font-size: 7.5px;
+        margin-top: 2px;
+        line-height: 1.05;
       }
 
       #cv-content .date {
-        font-size: 6.5px;
+        font-size: 7px;
       }
 
       .footer-row {
-        gap: 4px;
-        margin-top: 1px;
+        gap: 6px;
+        margin-top: 2px;
       }
 
       .footer-row .section-title {
-        font-size: 7.5px;
-        margin-top: 1.5px;
-        margin-bottom: 0.5px;
-        padding-bottom: 0.5px;
+        font-size: 8px;
+        margin-top: 2px;
+        margin-bottom: 1px;
+        padding-bottom: 1px;
       }
 
-      .footer-row p,
-      .footer-row div {
-        font-size: 6.2px;
-        line-height: 1.0;
+      .footer-row ul {
+        margin-top: 0px;
+        margin-bottom: 0.5px;
+        padding-left: 10px;
+      }
+
+      .footer-row ul li {
+        font-size: 6.8px;
+        line-height: 1.05;
+        margin-bottom: 0px;
+      }
+
+      .footer-row p {
+        font-size: 6.8px;
+        line-height: 1.05;
+        margin: 0;
       }
 
       .download-btn {
@@ -399,18 +424,25 @@
     <div class="footer-row">
       <div class="col-soft">
         <div class="section-title" style="margin-top:0;">Logiciels &amp; outils</div>
-        <div>
-          <b>Calcul :</b> Robot Structural Analysis, Arche, Plaxis, MATLAB<br>
-          <b>Conception :</b> AutoCAD, notions Revit<br>
-          <b>Gestion :</b> MS Project, Excel avancé<br>
-          <b>Méthodes :</b> Eurocodes, EXE, DOE, carnets de détails
-        </div>
+        <ul>
+          <li><b>Calcul :</b> Robot Structural Analysis, Arche, Plaxis, MATLAB</li>
+          <li><b>Conception :</b> AutoCAD, notions Revit</li>
+          <li><b>Gestion :</b> MS Project, Excel avancé</li>
+          <li><b>Méthodes :</b> Eurocodes, EXE, DOE, carnets de détails</li>
+        </ul>
       </div>
       <div class="col-lang">
         <div class="section-title" style="margin-top:0;">Langues</div>
-        <p>Français (courant)<br>Anglais (technique)</p>
+        <ul>
+          <li>Français (courant)</li>
+          <li>Anglais (technique)</li>
+        </ul>
         <div class="section-title" style="margin-top:2px;">Centres d'intérêt</div>
-        <p>Construction durable<br>Innovation en génie civil<br>Lecture technique</p>
+        <ul>
+          <li>Construction durable</li>
+          <li>Innovation en génie civil</li>
+          <li>Lecture technique</li>
+        </ul>
       </div>
     </div>
 
