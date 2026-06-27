@@ -158,9 +158,9 @@
       transform: scale(1.03);
     }
 
-    /* ============================================================ */
-    /* ===== MODE PDF - ULTRA COMPACT AVEC TOUTES LES SECTIONS ===== */
-    /* ============================================================ */
+    /* ================================================================ */
+    /* ===== MODE PDF - ULTRA COMPACT (toutes les sections) ===== */
+    /* ================================================================ */
     @media print {
       html,
       body {
@@ -172,7 +172,7 @@
       #cv-content {
         width: 210mm;
         height: 297mm;
-        padding: 6mm 12mm 6mm 12mm;
+        padding: 3mm 10mm 3mm 10mm;   /* marges minimales */
         box-shadow: none;
         border-radius: 0;
         display: flex;
@@ -181,59 +181,59 @@
         margin: 0 auto;
       }
 
-      /* ===== TAILLES COMPACTES ===== */
+      /* ===== TAILLES TRÈS COMPACTES ===== */
       #cv-content .name {
-        font-size: 16px;
-        line-height: 1.1;
+        font-size: 14px;
+        line-height: 1.0;
       }
 
       #cv-content .title {
-        font-size: 9px;
-        margin-top: 1px;
-        line-height: 1.1;
+        font-size: 8px;
+        margin-top: 0px;
+        line-height: 1.0;
       }
 
       #cv-content .subinfo {
-        font-size: 8px;
+        font-size: 7px;
         margin-top: 0px;
-        line-height: 1.1;
+        line-height: 1.0;
       }
 
       #cv-content .contact {
-        font-size: 8px;
-        line-height: 1.2;
+        font-size: 7px;
+        line-height: 1.1;
       }
 
       #cv-content .header {
-        padding-bottom: 4px;
-        margin-bottom: 4px;
-        border-bottom-width: 1px;
+        padding-bottom: 2px;
+        margin-bottom: 2px;
+        border-bottom-width: 0.8px;
       }
 
       #cv-content .section-title {
-        font-size: 8.5px;
-        margin-top: 4px;
-        margin-bottom: 1.5px;
-        padding-bottom: 1px;
-        border-bottom-width: 1px;
-        letter-spacing: 0.3px;
+        font-size: 7.5px;
+        margin-top: 2px;
+        margin-bottom: 0.5px;
+        padding-bottom: 0.5px;
+        border-bottom-width: 0.8px;
+        letter-spacing: 0.2px;
       }
 
       #cv-content p {
-        font-size: 7.5px;
-        line-height: 1.15;
+        font-size: 6.5px;
+        line-height: 1.05;
         margin: 0;
       }
 
       #cv-content li {
-        font-size: 7.2px;
-        line-height: 1.1;
+        font-size: 6.2px;
+        line-height: 1.0;
       }
 
       #cv-content ul {
         margin-top: 0px;
-        margin-bottom: 1px;
-        padding-left: 10px;
+        margin-bottom: 0.5px;
+        padding-left: 8px;
       }
 
       #cv-content ul li {
@@ -241,31 +241,31 @@
       }
 
       #cv-content .job-title {
-        font-size: 8px;
-        margin-top: 2px;
-        line-height: 1.1;
+        font-size: 7px;
+        margin-top: 1.5px;
+        line-height: 1.0;
       }
 
       #cv-content .date {
-        font-size: 7.5px;
+        font-size: 6.5px;
       }
 
       .footer-row {
-        gap: 6px;
-        margin-top: 2px;
+        gap: 4px;
+        margin-top: 1px;
       }
 
       .footer-row .section-title {
-        font-size: 8.5px;
-        margin-top: 3px;
-        margin-bottom: 1px;
-        padding-bottom: 1px;
+        font-size: 7.5px;
+        margin-top: 1.5px;
+        margin-bottom: 0.5px;
+        padding-bottom: 0.5px;
       }
 
       .footer-row p,
       .footer-row div {
-        font-size: 7.2px;
-        line-height: 1.1;
+        font-size: 6.2px;
+        line-height: 1.0;
       }
 
       .download-btn {
@@ -409,7 +409,7 @@
       <div class="col-lang">
         <div class="section-title" style="margin-top:0;">Langues</div>
         <p>Français (courant)<br>Anglais (technique)</p>
-        <div class="section-title" style="margin-top:3px;">Centres d'intérêt</div>
+        <div class="section-title" style="margin-top:2px;">Centres d'intérêt</div>
         <p>Construction durable<br>Innovation en génie civil<br>Lecture technique</p>
       </div>
     </div>
