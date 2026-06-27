@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Aymane Abidine</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    /* --- VOTRE STYLE EXISTANT --- */
+    body { margin:0; background:#f4f6f8; font-family:Arial, sans-serif; }
+    .page { width:860px; margin:30px auto; background:white; padding:40px 45px; box-shadow:0 10px 25px rgba(0,0,0,0.08); }
+    .header { display:flex; justify-content:space-between; border-bottom:2px solid #e6e6e6; padding-bottom:18px; margin-bottom:25px; }
+    .name { font-size:30px; font-weight:700; letter-spacing:0.5px; }
+    .title { font-size:14px; color:#444; margin-top:6px; }
+    .subinfo { margin-top:6px; font-size:13px; color:#666; }
+    .contact { text-align:right; font-size:13px; line-height:1.6; color:#333; }
+    .section-title { font-size:14px; font-weight:bold; text-transform:uppercase; margin-top:25px; margin-bottom:10px; letter-spacing:1px; color:#222; }
+    p, li { font-size:13.5px; line-height:1.6; }
+    ul { margin-top:6px; margin-bottom:15px; }
+    .job-title { display:flex; justify-content:space-between; font-weight:bold; font-size:14px; margin-top:10px; }
+    .date { color:#666; font-weight:normal; font-size:13px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 25px; }
+    .block { font-size:13.5px; }
+    .label { font-weight:bold; }
+
+    /* Bouton de téléchargement */
+    .download-btn {
+      text-align: center;
+      margin: 20px auto 40px;
+    }
+    .download-btn button {
+      background: #1a3a5c;
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(26,58,92,0.3);
+      transition: 0.2s;
+    }
+    .download-btn button:hover {
+      background: #0f2a44;
+      transform: scale(1.02);
+    }
+
+    @media print {
+      body { background:white; }
+      .page { box-shadow:none; margin:0; width:100%; }
+      .download-btn { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BOUTON DE TÉLÉCHARGEMENT (en haut pour plus de visibilité) -->
+<div class="download-btn">
+  <button onclick="downloadPDF()">📄 Télécharger le CV en PDF</button>
+</div>
+
+<!-- ========== VOTRE CV ========== -->
+<div id="cv-content" class="page">
+
+  <div class="header">
+    <div>
+      <div class="name">Aymane Abidine</div>
+      <div class="title">Ingénieur Génie Civil | Structures béton armé | Études & EXE</div>
+      <div class="subinfo">Béton armé • Structures • Études techniques • Exécution</div>
+    </div>
+    <div class="contact">
+      Villeurbanne (Lyon)<br>
+      06 67 56 63 01<br>
+      aymaneabidine@gmail.com<br>
+      linkedin.com/in/aymaneabidine<br>
+      Disponible immédiatement
+    </div>
+  </div>
+
+  <div class="section-title">Profil</div>
+  <p>Ingénieur en génie civil spécialisé en structures béton armé, études techniques et exécution (EXE). Expérience en bureau d'études et en suivi de chantier, avec intervention sur des projets de bâtiment en phase exécution. Compétences en production de carnets de détails, gestion de DOE, levées de réserves et contrôle de conformité. Bonne maîtrise des Eurocodes et des outils de modélisation structurelle.</p>
+
+  <div class="section-title">Compétences clés</div>
+  <ul>
+    <li>Études EXE et contrôle de documents techniques</li>
+    <li>Réalisation de carnets de détails (interfaces, étanchéité, structure)</li>
+    <li>Analyse et validation des DOE (Dossiers des Ouvrages Exécutés)</li>
+    <li>Levées de réserves et suivi de fin de chantier</li>
+    <li>Coordination technique entre MOE, entreprises et BET</li>
+    <li>Rédaction de comptes rendus de chantier</li>
+    <li>Dimensionnement béton armé (Eurocodes – notions avancées)</li>
+    <li>Suivi qualité et contrôle conformité des ouvrages</li>
+  </ul>
+
+  <div class="section-title">Expérience professionnelle</div>
+
+  <div class="job-title">
+    Ingénieur Bureau d'Études – Alpha Group (Étanchéité)
+    <span class="date">2025</span>
+  </div>
+  <ul>
+    <li>Études techniques en phase EXE pour systèmes d'étanchéité</li>
+    <li>Réalisation et mise à jour de carnets de détails techniques</li>
+    <li>Analyse et validation des DOE</li>
+    <li>Traitement des levées de réserves en fin de chantier</li>
+    <li>Rédaction de comptes rendus et suivi technique des opérations</li>
+    <li>Participation aux processus de visa des documents EXE</li>
+    <li>Interface entre entreprises, MOE et équipes travaux</li>
+  </ul>
+
+  <div class="job-title">
+    Assistant Chargé d'Affaires – Oustrin
+    <span class="date">2020 – 2021</span>
+  </div>
+  <ul>
+    <li>Plans de ferraillage béton armé sous AutoCAD</li>
+    <li>Optimisation de réseaux VRD (secs et humides)</li>
+    <li>Suivi technique chantier et bureau d'études</li>
+    <li>Participation aux réunions techniques</li>
+    <li>Suivi de production d'éléments préfabriqués béton</li>
+  </ul>
+
+  <div class="job-title">
+    Stage Conducteur de Travaux – Espace Rénovation
+    <span class="date">2019 – 2020</span>
+  </div>
+  <ul>
+    <li>Métrés et études quantitatives</li>
+    <li>Analyse technique des offres entreprises</li>
+    <li>Implantation et contrôle géométrique des ouvrages</li>
+    <li>Suivi de conformité réglementaire chantier</li>
+  </ul>
+
+  <div class="section-title">Formation</div>
+  <ul>
+    <li><b>Master Génie Civil – Structures</b> – Université Lyon 1 (2024–2025)</li>
+    <li><b>Licence Génie Civil</b> – Université Lyon 1 (2021–2022)</li>
+    <li><b>BTS Études et Économie de la Construction</b> (2015–2016)</li>
+  </ul>
+
+  <div class="section-title">Projets académiques</div>
+  <ul>
+    <li>Dimensionnement complet d'un bâtiment R+5 en béton armé</li>
+    <li>Étude de structure mixte acier-béton</li>
+    <li>Analyse sismique et modélisation 3D</li>
+    <li>Étude de stabilité globale et contreventement</li>
+  </ul>
+
+  <div class="section-title">Logiciels & outils</div>
+  <div class="grid">
+    <div class="block"><span class="label">Calcul :</span> Robot Structural Analysis, Arche, Plaxis, MATLAB</div>
+    <div class="block"><span class="label">Conception :</span> AutoCAD, notions Revit</div>
+    <div class="block"><span class="label">Gestion :</span> MS Project, Excel avancé</div>
+    <div class="block"><span class="label">Méthodes :</span> Eurocodes, EXE, DOE, carnets de détails</div>
+  </div>
+
+  <div class="section-title">Langues</div>
+  <p>Français (courant) – Anglais (technique)</p>
+
+  <div class="section-title">Centres d'intérêt</div>
+  <p>Construction durable – Innovation en génie civil – Lecture technique</p>
+
+</div>
+<!-- ========== FIN CV ========== -->
+
+<div class="download-btn">
+  <button onclick="downloadPDF()">📄 Télécharger le CV en PDF</button>
+</div>
+
+<script>
+function downloadPDF() {
+  const element = document.getElementById('cv-content');
+  const opt = {
+    margin:        [0.5, 0.5, 0.5, 0.5], // haut, droite, bas, gauche (en unités)
+    filename:     'CV_Aymane_Abidine.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, letterRendering: true, useCORS: true, logging: false },
+    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+  html2pdf().set(opt).from(element).save();
+}
+</script>
+
+</body>
+</html>
