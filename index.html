@@ -3,252 +3,241 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CV - Aymane Abidine</title>
+<title>Aymane Abidine - CV Ingénieur Génie Civil</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body{
-  font-family:Inter, sans-serif;
-  background:#eef2f7;
-  padding:25px;
+  font-family: 'Segoe UI', Roboto, Arial;
+  background:#e6e9ef;
   display:flex;
   flex-direction:column;
   align-items:center;
-  color:#111827;
+  padding:30px;
+  color:#1e2b3a;
 }
 
-button{
-  background:#0f172a;
+/* BUTTON */
+.download-btn button{
+  background:#1e2b3a;
   color:#fff;
   border:none;
-  padding:12px 28px;
-  border-radius:8px;
-  font-weight:600;
+  padding:14px 40px;
+  border-radius:10px;
+  font-weight:bold;
   cursor:pointer;
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 
-.cv{
-  width:210mm;
-  min-height:297mm;
+/* CV */
+.cv-container{
+  width:1100px;
   background:white;
+  border-radius:16px;
   display:grid;
-  grid-template-columns: 34% 66%;
-  box-shadow:0 20px 50px rgba(0,0,0,0.12);
+  grid-template-columns:30% 70%;
+  overflow:hidden;
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
 
 /* LEFT */
-.left{
-  background:#0f172a;
+.sidebar{
+  background:#1e2b3a;
   color:white;
-  padding:22px;
+  padding:30px;
 }
 
-.name{
-  font-size:20px;
-  font-weight:700;
-}
+.sidebar h1{ font-size:22px; margin-top:10px; }
+.sidebar .title{ font-size:13px; color:#b6c9e0; margin-bottom:15px; }
 
-.role{
-  font-size:12.5px;
-  color:#cbd5e1;
-  margin-bottom:15px;
-}
-
-.block-title{
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-top:14px;
-  margin-bottom:8px;
-  color:#94a3b8;
-}
-
-.contact,.skills{
+.section-title{
   font-size:12px;
-  line-height:1.6;
-  color:#e5e7eb;
+  text-transform:uppercase;
+  color:#b6c9e0;
+  margin:15px 0 8px;
+  border-bottom:1px solid #3d5068;
+  padding-bottom:5px;
+}
+
+.contact-item, .lang-item{
+  font-size:12px;
+  margin-bottom:6px;
+  color:#dce4ed;
+}
+
+.skill-list li{
+  font-size:12px;
+  margin:5px 0;
+  list-style:none;
 }
 
 /* RIGHT */
-.right{
-  padding:24px;
+.main{
+  padding:30px;
 }
 
-.section{
-  margin-bottom:16px;
+.section-title-main{
+  font-size:15px;
+  font-weight:bold;
+  border-bottom:3px solid #1e2b3a;
+  margin-bottom:10px;
+  padding-bottom:5px;
 }
 
-.h{
+.profile-text{
   font-size:13px;
-  font-weight:700;
-  border-left:3px solid #0f172a;
-  padding-left:8px;
-  margin-bottom:8px;
-}
-
-.text{
-  font-size:12.5px;
   line-height:1.5;
-  color:#374151;
   text-align:justify;
+  margin-bottom:15px;
 }
 
 /* EXPERIENCE */
-.job{
-  margin-bottom:12px;
+.exp{
+  margin-bottom:15px;
 }
 
-.job h3{
-  font-size:13px;
-  font-weight:700;
+.exp h3{
+  font-size:14px;
 }
 
-.job .sub{
-  font-size:12px;
-  color:#2563eb;
-  margin-bottom:5px;
+.exp small{
+  color:#2c5a7a;
+  font-weight:bold;
 }
 
-.job ul{
-  padding-left:16px;
-}
-
-.job li{
-  font-size:12px;
-  margin-bottom:3px;
-  color:#374151;
-}
-
-/* EDUCATION */
-.edu{
-  font-size:12px;
-  margin-bottom:5px;
-  color:#374151;
-}
-
-/* PDF CLEAN */
-.pdf-mode{
-  background:white !important;
-  padding:0 !important;
-}
-
-.pdf-mode .cv{
-  box-shadow:none;
+/* PRINT */
+@media print{
+  .download-btn{ display:none; }
+  body{ background:white; }
+  .cv-container{ box-shadow:none; }
 }
 </style>
 </head>
 
 <body>
 
-<button onclick="downloadPDF()">📄 Télécharger PDF</button>
+<div class="download-btn">
+<button onclick="downloadPDF()">Télécharger PDF</button>
+</div>
 
-<div class="cv" id="cv">
+<div class="cv-container" id="cv-content">
 
 <!-- LEFT -->
-<div class="left">
-  <div class="name">Aymane Abidine</div>
-  <div class="role">Ingénieur Génie Civil | Structures Béton Armé</div>
+<div class="sidebar">
+  <h1>Aymane Abidine</h1>
+  <div class="title">Ingénieur Génie Civil | Structures BA & EXE</div>
 
-  <div class="block-title">Contact</div>
-  <div class="contact">
-    Villeurbanne<br>
-    06 67 56 63 01<br>
-    aymane.abidine@gmail.com<br>
-    Disponible immédiatement
-  </div>
+  <div class="section-title">Contact</div>
+  <div class="contact-item">📍 Villeurbanne</div>
+  <div class="contact-item">📞 06 67 56 63 01</div>
+  <div class="contact-item">✉️ aymane.abidine@gmail.com</div>
+  <div class="contact-item">LinkedIn</div>
 
-  <div class="block-title">Compétences</div>
-  <div class="skills">
-    EXE / DOE / Eurocodes<br>
-    Béton armé & structures<br>
-    Coordination chantier<br>
-    Étanchéité & interfaces
-  </div>
+  <div class="section-title">Compétences</div>
+  <ul class="skill-list">
+    <li>✔ Études EXE complètes</li>
+    <li>✔ Coordination chantier / MOE</li>
+    <li>✔ DOE / levées de réserves</li>
+    <li>✔ Eurocodes BA</li>
+    <li>✔ Contrôle qualité chantier</li>
+    <li>✔ Carnets de détails techniques</li>
+  </ul>
 
-  <div class="block-title">Logiciels</div>
-  <div class="skills">
-    AutoCAD<br>
-    Robot Structural Analysis<br>
-    Plaxis<br>
-    Excel avancé
-  </div>
+  <div class="section-title">Logiciels</div>
+  <div class="contact-item">AutoCAD / Robot / Plaxis / Excel avancé</div>
+
+  <div class="section-title">Langues</div>
+  <div class="lang-item">Français – Courant</div>
+  <div class="lang-item">Anglais – Technique</div>
 </div>
 
 <!-- RIGHT -->
-<div class="right">
+<div class="main">
 
-  <div class="section">
-    <div class="h">Profil</div>
-    <div class="text">
-      Ingénieur en génie civil spécialisé en structures béton armé et en phase EXE.
-      Expérience en bureau d’études et sur chantier, intervenant sur des projets de bâtiment
-      de la conception à la réception avec maîtrise des DOE, carnets de détails et suivi qualité.
-    </div>
-  </div>
+<div class="section-title-main">Profil</div>
+<p class="profile-text">
+Ingénieur en génie civil spécialisé en structures béton armé et en phase EXE. Expérience en bureau d’études et sur chantier, avec une forte implication dans la coordination technique, le suivi d’exécution et la gestion des interfaces. Capacité à sécuriser techniquement des projets et à optimiser les solutions constructives en phase chantier.
+</p>
 
-  <div class="section">
-    <div class="h">Expérience professionnelle</div>
+<div class="section-title-main">Expérience professionnelle</div>
 
-    <div class="job">
-      <h3>Ingénieur Bureau d’Études</h3>
-      <div class="sub">Alpha Group (Étanchéité)</div>
-      <ul>
-        <li>Études EXE systèmes d’étanchéité</li>
-        <li>Carnets de détails techniques</li>
-        <li>Validation DOE et contrôle qualité</li>
-        <li>Levée de réserves et réception chantier</li>
-      </ul>
-    </div>
+<div class="exp">
+<h3>Ingénieur Bureau d’Études — Alpha Group (Étanchéité)</h3>
+<small>2025</small>
+<p class="profile-text">
+• Études techniques EXE pour systèmes d’étanchéité complexes<br>
+• Réalisation et optimisation de carnets de détails techniques<br>
+• Analyse critique et validation des DOE chantier<br>
+• Gestion des levées de réserves et suivi de conformité<br>
+• Interface MOE / entreprises / équipes travaux<br>
+• Contribution à la réduction des non-conformités chantier
+</p>
+</div>
 
-    <div class="job">
-      <h3>Assistant Chargé d’Affaires</h3>
-      <div class="sub">Unistrain</div>
-      <ul>
-        <li>Plans de ferraillage AutoCAD</li>
-        <li>Suivi chantier et bureau d’études</li>
-        <li>Coordination technique projets</li>
-      </ul>
-    </div>
+<div class="exp">
+<h3>Assistant Chargé d’Affaires — Unistrain</h3>
+<small>2020 – 2021</small>
+<p class="profile-text">
+• Plans de ferraillage sous AutoCAD (béton armé)<br>
+• Suivi technique bureau d’études / chantier<br>
+• Participation aux réunions de coordination<br>
+• Contrôle de conformité des éléments préfabriqués<br>
+• Optimisation des solutions techniques VRD
+</p>
+</div>
 
-    <div class="job">
-      <h3>Stage Conducteur de Travaux</h3>
-      <div class="sub">Espace Rénovation</div>
-      <ul>
-        <li>Métrés et études quantitatives</li>
-        <li>Contrôle géométrique chantier</li>
-        <li>Suivi qualité des ouvrages</li>
-      </ul>
-    </div>
+<div class="exp">
+<h3>Stage Conducteur de Travaux — Espace Rénovation</h3>
+<small>2019 – 2020</small>
+<p class="profile-text">
+• Métrés et quantitatifs chantier<br>
+• Contrôle géométrique et implantation ouvrages<br>
+• Analyse technique des offres entreprises<br>
+• Suivi qualité et conformité réglementaire
+</p>
+</div>
 
-  </div>
+<div class="section-title-main">Formation</div>
+<p class="profile-text">
+Master Génie Civil – Université Lyon 1 (2024–2025)<br>
+Licence Génie Civil – Université Lyon 1 (2021–2022)<br>
+BTS Études et Économie de la Construction
+</p>
 
-  <div class="section">
-    <div class="h">Formation</div>
-    <div class="edu">Master Génie Civil – Lyon 1 (2024–2025)</div>
-    <div class="edu">Licence Génie Civil – Lyon 1</div>
-    <div class="edu">BTS Études & Économie de la Construction</div>
-  </div>
+<div class="section-title-main">Projets</div>
+<p class="profile-text">
+• Dimensionnement R+5 béton armé<br>
+• Analyse sismique 3D avancée<br>
+• Structure mixte acier-béton<br>
+• Étude stabilité globale & contreventement
+</p>
+
+<div class="section-title-main">Atouts professionnels</div>
+<p class="profile-text">
+• Rigueur technique chantier<br>
+• Capacité de résolution de problèmes complexes<br>
+• Autonomie en phase EXE<br>
+• Sens des responsabilités projets<br>
+• Vision coût / qualité / délais
+</p>
 
 </div>
 </div>
 
 <script>
 function downloadPDF(){
-  document.body.classList.add("pdf-mode");
-
+  const element=document.getElementById("cv-content");
   html2pdf().set({
     margin:0,
     filename:"CV_Aymane_Abidine.pdf",
-    image:{type:"jpeg", quality:1},
     html2canvas:{scale:3},
-    jsPDF:{unit:"mm", format:"a4", orientation:"portrait"}
-  }).from(document.getElementById("cv")).save()
-  .then(()=>document.body.classList.remove("pdf-mode"));
+    jsPDF:{format:"a4",orientation:"portrait"}
+  }).from(element).save();
 }
 </script>
 
