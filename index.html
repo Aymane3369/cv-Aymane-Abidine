@@ -1,245 +1,915 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Aymane Abidine - CV Ingénieur Génie Civil</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aymane Abidine - CV Ingénieur Génie Civil</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+  </script>
+  <style>
+    /* --- RESET & POLICES --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #e6e9ef;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 30px 20px;
+      color: #1e2b3a;
+    }
 
-<style>
-/* RESET */
-* { margin:0; padding:0; box-sizing:border-box; }
+    /* ===== BOUTON ===== */
+    .download-btn {
+      margin-bottom: 25px;
+    }
 
-body{
-  font-family: 'Segoe UI', Roboto, Arial;
-  background:#e6e9ef;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:30px;
-  color:#1e2b3a;
-}
+    .download-btn button {
+      background: #1e2b3a;
+      color: white;
+      border: none;
+      padding: 14px 50px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 20px rgba(30, 43, 58, 0.35);
+      transition: 0.25s;
+    }
 
-/* BUTTON */
-.download-btn button{
-  background:#1e2b3a;
-  color:#fff;
-  border:none;
-  padding:14px 40px;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-bottom:20px;
-}
+    .download-btn button:hover {
+      background: #0f1822;
+      transform: scale(1.03);
+    }
 
-/* CV */
-.cv-container{
-  width:1100px;
-  background:white;
-  border-radius:16px;
-  display:grid;
-  grid-template-columns:30% 70%;
-  overflow:hidden;
-  box-shadow:0 20px 40px rgba(0,0,0,0.12);
-}
+    /* ===== CV ===== */
+    .cv-container {
+      max-width: 1100px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      display: grid;
+      grid-template-columns: 30% 70%;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
 
-/* LEFT */
-.sidebar{
-  background:#1e2b3a;
-  color:white;
-  padding:30px;
-}
+    /* --- COLONNE GAUCHE --- */
+    .sidebar {
+      background: #1e2b3a;
+      color: #eef2f7;
+      padding: 35px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
 
-.sidebar h1{ font-size:22px; margin-top:10px; }
-.sidebar .title{ font-size:13px; color:#b6c9e0; margin-bottom:15px; }
+    .sidebar .photo-placeholder {
+      text-align: center;
+      margin-bottom: 4px;
+    }
 
-.section-title{
-  font-size:12px;
-  text-transform:uppercase;
-  color:#b6c9e0;
-  margin:15px 0 8px;
-  border-bottom:1px solid #3d5068;
-  padding-bottom:5px;
-}
+    .sidebar .photo-placeholder i {
+      font-size: 64px;
+      color: #8ba3c0;
+      background: #2a3a4d;
+      padding: 14px;
+      border-radius: 50%;
+    }
 
-.contact-item, .lang-item{
-  font-size:12px;
-  margin-bottom:6px;
-  color:#dce4ed;
-}
+    .sidebar h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
 
-.skill-list li{
-  font-size:12px;
-  margin:5px 0;
-  list-style:none;
-}
+    .sidebar .title {
+      font-size: 14px;
+      font-weight: 400;
+      color: #b6c9e0;
+      margin-bottom: 6px;
+      border-bottom: 2px solid #3d5068;
+      padding-bottom: 10px;
+    }
 
-/* RIGHT */
-.main{
-  padding:30px;
-}
+    .sidebar .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #b6c9e0;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #3d5068;
+      padding-bottom: 5px;
+    }
 
-.section-title-main{
-  font-size:15px;
-  font-weight:bold;
-  border-bottom:3px solid #1e2b3a;
-  margin-bottom:10px;
-  padding-bottom:5px;
-}
+    .sidebar .section-title i {
+      margin-right: 6px;
+    }
 
-.profile-text{
-  font-size:13px;
-  line-height:1.5;
-  text-align:justify;
-  margin-bottom:15px;
-}
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #dce4ed;
+      line-height: 1.3;
+    }
 
-/* EXPERIENCE */
-.exp{
-  margin-bottom:15px;
-}
+    .contact-item i {
+      width: 18px;
+      font-size: 14px;
+      color: #8ba3c0;
+      text-align: center;
+    }
 
-.exp h3{
-  font-size:14px;
-}
+    .contact-item a {
+      color: #dce4ed;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .contact-item a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
 
-.exp small{
-  color:#2c5a7a;
-  font-weight:bold;
-}
+    .sidebar .skill-list {
+      list-style: none;
+      padding: 0;
+    }
 
-/* PRINT */
-@media print{
-  .download-btn{ display:none; }
-  body{ background:white; }
-  .cv-container{ box-shadow:none; }
-}
-</style>
+    .sidebar .skill-list li {
+      font-size: 13px;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .sidebar .skill-list li i {
+      color: #8ba3c0;
+      font-size: 9px;
+      width: 14px;
+      margin-top: 3px;
+    }
+
+    .sidebar .lang-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .sidebar .lang-item span:last-child {
+      color: #b6c9e0;
+      font-style: italic;
+    }
+
+    .sidebar .interest-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+    }
+    .sidebar .interest-list li {
+      font-size: 13px;
+      background: #2a3a4d;
+      padding: 3px 12px;
+      border-radius: 20px;
+      color: #dce4ed;
+    }
+
+    /* --- COLONNE DROITE --- */
+    .main {
+      padding: 32px 30px 28px 30px;
+      background: #ffffff;
+    }
+
+    .main .section {
+      margin-bottom: 20px;
+    }
+    .main .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .main .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1e2b3a;
+      border-bottom: 3px solid #1e2b3a;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    .main .profile-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #2c3e50;
+      text-align: justify;
+    }
+
+    .exp-item {
+      margin-bottom: 14px;
+    }
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .exp-header h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e2b3a;
+    }
+
+    .exp-header .date {
+      font-size: 12px;
+      font-weight: 500;
+      color: #5a6f84;
+      background: #eef2f7;
+      padding: 1px 10px;
+      border-radius: 12px;
+    }
+
+    .exp-sub {
+      font-weight: 600;
+      color: #2c5a7a;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .exp-item ul {
+      list-style: none;
+      padding-left: 4px;
+      margin-top: 2px;
+    }
+
+    .exp-item ul li {
+      font-size: 13px;
+      line-height: 1.45;
+      color: #2c3e50;
+      padding: 1px 0 1px 18px;
+      position: relative;
+    }
+
+    .exp-item ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #1e2b3a;
+      font-weight: 700;
+    }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 14px;
+      padding: 3px 0;
+      border-bottom: 1px solid #f0f2f5;
+    }
+    .edu-item strong {
+      font-weight: 600;
+      color: #1e2b3a;
+    }
+    .edu-item .edu-date {
+      color: #5a6f84;
+      font-size: 13px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 18px;
+      margin-top: 2px;
+      list-style: none;
+      padding: 0;
+    }
+    .project-grid li {
+      font-size: 13px;
+      line-height: 1.4;
+      padding: 2px 0 2px 16px;
+      position: relative;
+      color: #2c3e50;
+    }
+    .project-grid li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1e2b3a;
+      font-weight: 700;
+    }
+
+    /* ================================================================ */
+    /* ===== MODE PDF - VERSION AGRANDIE POUR REMPLIR LA PAGE ===== */
+    /* ================================================================ */
+
+    /* 1. Impression navigateur */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .download-btn {
+        display: none !important;
+      }
+
+      .cv-container {
+        max-width: 100%;
+        width: 210mm;
+        height: 297mm;
+        border-radius: 0;
+        box-shadow: none;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+
+      /* ---- Colonne gauche ---- */
+      .sidebar {
+        padding: 10mm 7mm;
+        gap: 5mm;
+        background: #1e2b3a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .sidebar .photo-placeholder i {
+        font-size: 40px;
+        padding: 8px;
+      }
+
+      .sidebar h1 {
+        font-size: 18px;
+      }
+
+      .sidebar .title {
+        font-size: 10px;
+        padding-bottom: 6px;
+        margin-bottom: 4px;
+      }
+
+      .sidebar .section-title {
+        font-size: 9.5px;
+        margin-bottom: 6px;
+        padding-bottom: 4px;
+      }
+      .sidebar .section-title i {
+        font-size: 9px;
+      }
+
+      .contact-item {
+        font-size: 9px;
+        gap: 6px;
+        margin-bottom: 5px;
+      }
+      .contact-item i {
+        font-size: 9px;
+        width: 16px;
+      }
+
+      .sidebar .skill-list li {
+        font-size: 9px;
+        padding: 3px 0;
+        gap: 5px;
+      }
+      .sidebar .skill-list li i {
+        font-size: 7px;
+        width: 12px;
+      }
+
+      .sidebar .lang-item {
+        font-size: 9px;
+        padding: 3px 0;
+      }
+
+      .sidebar .interest-list li {
+        font-size: 9px;
+        padding: 2px 10px;
+        background: #2a3a4d !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* ---- Colonne droite ---- */
+      .main {
+        padding: 10mm 8mm 8mm 8mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .main .section {
+        margin-bottom: 4mm;
+      }
+      .main .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .main .section-title {
+        font-size: 10.5px;
+        padding-bottom: 3px;
+        margin-bottom: 5px;
+        border-bottom-width: 2px;
+      }
+
+      .main .profile-text {
+        font-size: 9.5px;
+        line-height: 1.4;
+      }
+
+      .exp-item {
+        margin-bottom: 3.5mm;
+      }
+      .exp-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .exp-header h3 {
+        font-size: 10px;
+      }
+
+      .exp-header .date {
+        font-size: 8.5px;
+        padding: 0 8px;
+      }
+
+      .exp-sub {
+        font-size: 9px;
+        margin-bottom: 2px;
+      }
+
+      .exp-item ul li {
+        font-size: 9px;
+        line-height: 1.35;
+        padding: 1px 0 1px 16px;
+      }
+
+      .edu-item {
+        font-size: 9.5px;
+        padding: 3px 0;
+      }
+      .edu-item .edu-date {
+        font-size: 9px;
+      }
+
+      .project-grid {
+        gap: 3px 14px;
+      }
+      .project-grid li {
+        font-size: 9px;
+        line-height: 1.35;
+        padding: 1.5px 0 1.5px 14px;
+      }
+
+      /* Couleurs print */
+      .sidebar .title,
+      .sidebar .section-title {
+        color: #b6c9e0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .contact-item i,
+      .sidebar .skill-list li i {
+        color: #8ba3c0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .exp-item ul li::before {
+        color: #1e2b3a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    /* 2. Mode pdf-mode (pour html2canvas) */
+    .pdf-mode {
+      background: white !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .pdf-mode .cv-container {
+      max-width: 100%;
+      width: 210mm;
+      height: 297mm;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      display: grid;
+      grid-template-columns: 30% 70%;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    /* ---- Colonne gauche ---- */
+    .pdf-mode .sidebar {
+      padding: 10mm 7mm;
+      gap: 5mm;
+      background: #1e2b3a !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .pdf-mode .sidebar .photo-placeholder i {
+      font-size: 40px;
+      padding: 8px;
+    }
+
+    .pdf-mode .sidebar h1 {
+      font-size: 18px;
+    }
+
+    .pdf-mode .sidebar .title {
+      font-size: 10px;
+      padding-bottom: 6px;
+      margin-bottom: 4px;
+      color: #b6c9e0 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .pdf-mode .sidebar .section-title {
+      font-size: 9.5px;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      color: #b6c9e0 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .pdf-mode .sidebar .section-title i {
+      font-size: 9px;
+    }
+
+    .pdf-mode .contact-item {
+      font-size: 9px;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+    .pdf-mode .contact-item i {
+      font-size: 9px;
+      width: 16px;
+      color: #8ba3c0 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .pdf-mode .sidebar .skill-list li {
+      font-size: 9px;
+      padding: 3px 0;
+      gap: 5px;
+    }
+    .pdf-mode .sidebar .skill-list li i {
+      font-size: 7px;
+      width: 12px;
+      color: #8ba3c0 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .pdf-mode .sidebar .lang-item {
+      font-size: 9px;
+      padding: 3px 0;
+    }
+
+    .pdf-mode .sidebar .interest-list li {
+      font-size: 9px;
+      padding: 2px 10px;
+      background: #2a3a4d !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* ---- Colonne droite ---- */
+    .pdf-mode .main {
+      padding: 10mm 8mm 8mm 8mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .pdf-mode .main .section {
+      margin-bottom: 4mm;
+    }
+    .pdf-mode .main .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .pdf-mode .main .section-title {
+      font-size: 10.5px;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
+      border-bottom-width: 2px;
+    }
+
+    .pdf-mode .main .profile-text {
+      font-size: 9.5px;
+      line-height: 1.4;
+    }
+
+    .pdf-mode .exp-item {
+      margin-bottom: 3.5mm;
+    }
+    .pdf-mode .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .pdf-mode .exp-header h3 {
+      font-size: 10px;
+    }
+
+    .pdf-mode .exp-header .date {
+      font-size: 8.5px;
+      padding: 0 8px;
+    }
+
+    .pdf-mode .exp-sub {
+      font-size: 9px;
+      margin-bottom: 2px;
+    }
+
+    .pdf-mode .exp-item ul li {
+      font-size: 9px;
+      line-height: 1.35;
+      padding: 1px 0 1px 16px;
+    }
+    .pdf-mode .exp-item ul li::before {
+      color: #1e2b3a !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .pdf-mode .edu-item {
+      font-size: 9.5px;
+      padding: 3px 0;
+    }
+    .pdf-mode .edu-item .edu-date {
+      font-size: 9px;
+    }
+
+    .pdf-mode .project-grid {
+      gap: 3px 14px;
+    }
+    .pdf-mode .project-grid li {
+      font-size: 9px;
+      line-height: 1.35;
+      padding: 1.5px 0 1.5px 14px;
+    }
+
+    /* --- RESPONSIVE ÉCRAN --- */
+    @media (max-width: 720px) {
+      .cv-container {
+        grid-template-columns: 1fr;
+        border-radius: 12px;
+      }
+      .sidebar {
+        padding: 28px 20px;
+      }
+      .main {
+        padding: 24px 20px;
+      }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar .photo-placeholder i {
+        font-size: 56px;
+        padding: 12px;
+      }
+      .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="download-btn">
-<button onclick="downloadPDF()">Télécharger PDF</button>
-</div>
+  <!-- ===== BOUTON DE TÉLÉCHARGEMENT ===== -->
+  <div class="download-btn">
+    <button onclick="downloadPDF()">📄 Télécharger le CV en PDF (A4)</button>
+  </div>
 
-<div class="cv-container" id="cv-content">
+  <!-- ===== CV ===== -->
+  <div class="cv-container" id="cv-content">
 
-<!-- LEFT -->
-<div class="sidebar">
-  <h1>Aymane Abidine</h1>
-  <div class="title">Ingénieur Génie Civil | Structures BA & EXE</div>
+    <!-- ========== COLONNE GAUCHE ========== -->
+    <aside class="sidebar">
 
-  <div class="section-title">Contact</div>
-  <div class="contact-item">📍 Villeurbanne</div>
-  <div class="contact-item">📞 06 67 56 63 01</div>
-  <div class="contact-item">✉️ aymane.abidine@gmail.com</div>
-  <div class="contact-item">LinkedIn</div>
+      <div class="photo-placeholder">
+        <i class="fas fa-user-circle"></i>
+      </div>
 
-  <div class="section-title">Compétences</div>
-  <ul class="skill-list">
-    <li>✔ Études EXE complètes</li>
-    <li>✔ Coordination chantier / MOE</li>
-    <li>✔ DOE / levées de réserves</li>
-    <li>✔ Eurocodes BA</li>
-    <li>✔ Contrôle qualité chantier</li>
-    <li>✔ Carnets de détails techniques</li>
-  </ul>
+      <h1>Aymane Abidine</h1>
+      <div class="title">Ingénieur Génie Civil | Structures Béton Armé</div>
 
-  <div class="section-title">Logiciels</div>
-  <div class="contact-item">AutoCAD / Robot / Plaxis / Excel avancé</div>
+      <!-- CONTACT -->
+      <div>
+        <div class="section-title"><i class="fas fa-address-card"></i> Contact</div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Villeurbanne (Lyon)</div>
+        <div class="contact-item"><i class="fas fa-phone"></i> 06 67 56 63 01</div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:aymane.abidine@gmail.com">aymane.abidine@gmail.com</a></div>
+        <div class="contact-item"><i class="fab fa-linkedin-in"></i> <a href="#">linkedin.com/in/aymaneabidine</a></div>
+        <div class="contact-item"><i class="fas fa-clock"></i> Disponible immédiatement</div>
+      </div>
 
-  <div class="section-title">Langues</div>
-  <div class="lang-item">Français – Courant</div>
-  <div class="lang-item">Anglais – Technique</div>
-</div>
+      <!-- COMPÉTENCES CLÉS -->
+      <div>
+        <div class="section-title"><i class="fas fa-tools"></i> Compétences clés</div>
+        <ul class="skill-list">
+          <li><i class="fas fa-chevron-right"></i> Études EXE &amp; contrôle documentaire</li>
+          <li><i class="fas fa-chevron-right"></i> Carnets de détails (interfaces, étanchéité)</li>
+          <li><i class="fas fa-chevron-right"></i> Gestion et validation des DOE</li>
+          <li><i class="fas fa-chevron-right"></i> Levées de réserves &amp; réception</li>
+          <li><i class="fas fa-chevron-right"></i> Coordination technique MOE / entreprises</li>
+          <li><i class="fas fa-chevron-right"></i> Dimensionnement béton armé (Eurocodes)</li>
+          <li><i class="fas fa-chevron-right"></i> Contrôle conformité &amp; qualité</li>
+        </ul>
+      </div>
 
-<!-- RIGHT -->
-<div class="main">
+      <!-- LOGICIELS & OUTILS -->
+      <div>
+        <div class="section-title"><i class="fas fa-laptop-code"></i> Logiciels &amp; outils</div>
+        <ul class="skill-list">
+          <li><i class="fas fa-chevron-right"></i> Robot Structural Analysis, Arche, Plaxis, MATLAB</li>
+          <li><i class="fas fa-chevron-right"></i> AutoCAD, notions Revit</li>
+          <li><i class="fas fa-chevron-right"></i> MS Project, Excel avancé</li>
+          <li><i class="fas fa-chevron-right"></i> Eurocodes, EXE, DOE, carnets de détails</li>
+        </ul>
+      </div>
 
-<div class="section-title-main">Profil</div>
-<p class="profile-text">
-Ingénieur en génie civil spécialisé en structures béton armé et en phase EXE. Expérience en bureau d’études et sur chantier, avec une forte implication dans la coordination technique, le suivi d’exécution et la gestion des interfaces. Capacité à sécuriser techniquement des projets et à optimiser les solutions constructives en phase chantier.
-</p>
+      <!-- LANGUES -->
+      <div>
+        <div class="section-title"><i class="fas fa-language"></i> Langues</div>
+        <div class="lang-item"><span>Français</span><span>Courant</span></div>
+        <div class="lang-item"><span>Anglais</span><span>Technique (lecture normes)</span></div>
+      </div>
 
-<div class="section-title-main">Expérience professionnelle</div>
+      <!-- CENTRES D'INTÉRÊT -->
+      <div>
+        <div class="section-title"><i class="fas fa-heart"></i> Centres d'intérêt</div>
+        <ul class="interest-list">
+          <li>Construction durable</li>
+          <li>Innovation génie civil</li>
+          <li>Lecture technique</li>
+        </ul>
+      </div>
 
-<div class="exp">
-<h3>Ingénieur Bureau d’Études — Alpha Group (Étanchéité)</h3>
-<small>2025</small>
-<p class="profile-text">
-• Études techniques EXE pour systèmes d’étanchéité complexes<br>
-• Réalisation et optimisation de carnets de détails techniques<br>
-• Analyse critique et validation des DOE chantier<br>
-• Gestion des levées de réserves et suivi de conformité<br>
-• Interface MOE / entreprises / équipes travaux<br>
-• Contribution à la réduction des non-conformités chantier
-</p>
-</div>
+    </aside>
 
-<div class="exp">
-<h3>Assistant Chargé d’Affaires — Unistrain</h3>
-<small>2020 – 2021</small>
-<p class="profile-text">
-• Plans de ferraillage sous AutoCAD (béton armé)<br>
-• Suivi technique bureau d’études / chantier<br>
-• Participation aux réunions de coordination<br>
-• Contrôle de conformité des éléments préfabriqués<br>
-• Optimisation des solutions techniques VRD
-</p>
-</div>
+    <!-- ========== COLONNE DROITE ========== -->
+    <main class="main">
 
-<div class="exp">
-<h3>Stage Conducteur de Travaux — Espace Rénovation</h3>
-<small>2019 – 2020</small>
-<p class="profile-text">
-• Métrés et quantitatifs chantier<br>
-• Contrôle géométrique et implantation ouvrages<br>
-• Analyse technique des offres entreprises<br>
-• Suivi qualité et conformité réglementaire
-</p>
-</div>
+      <!-- PROFIL -->
+      <section class="section">
+        <div class="section-title">Profil</div>
+        <p class="profile-text">
+          Ingénieur en génie civil spécialisé dans les structures en béton armé, les études techniques et la phase exécution (EXE). Fort d’une expérience en bureau d’études et sur chantier, j’interviens sur des projets de bâtiment de la conception à la réception. Mes compétences couvrent la production de carnets de détails, la gestion des dossiers des ouvrages exécutés (DOE), la levée de réserves et le contrôle de conformité. Maîtrise avancée des Eurocodes et des outils de modélisation structurelle.
+        </p>
+      </section>
 
-<div class="section-title-main">Formation</div>
-<p class="profile-text">
-Master Génie Civil – Université Lyon 1 (2024–2025)<br>
-Licence Génie Civil – Université Lyon 1 (2021–2022)<br>
-BTS Études et Économie de la Construction
-</p>
+      <!-- EXPÉRIENCE PROFESSIONNELLE -->
+      <section class="section">
+        <div class="section-title">Expérience professionnelle</div>
 
-<div class="section-title-main">Projets</div>
-<p class="profile-text">
-• Dimensionnement R+5 béton armé<br>
-• Analyse sismique 3D avancée<br>
-• Structure mixte acier-béton<br>
-• Étude stabilité globale & contreventement
-</p>
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3>Ingénieur Bureau d’Études</h3>
+            <span class="date">2025</span>
+          </div>
+          <div class="exp-sub">Alpha Group (Étanchéité)</div>
+          <ul>
+            <li>Réalisation d’études techniques en phase EXE pour des systèmes d’étanchéité</li>
+            <li>Conception et mise à jour de carnets de détails techniques</li>
+            <li>Analyse et validation des dossiers des ouvrages exécutés (DOE)</li>
+            <li>Traitement des levées de réserves en phase de réception des chantiers</li>
+            <li>Rédaction de comptes rendus et suivi technique des opérations</li>
+            <li>Interface technique entre les entreprises, la MOE et les équipes travaux</li>
+          </ul>
+        </div>
 
-<div class="section-title-main">Atouts professionnels</div>
-<p class="profile-text">
-• Rigueur technique chantier<br>
-• Capacité de résolution de problèmes complexes<br>
-• Autonomie en phase EXE<br>
-• Sens des responsabilités projets<br>
-• Vision coût / qualité / délais
-</p>
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3>Assistant Chargé d’Affaires</h3>
+            <span class="date">2020 – 2021</span>
+          </div>
+          <div class="exp-sub">Unistrain</div>
+          <ul>
+            <li>Réalisation de plans de ferraillage béton armé sous AutoCAD</li>
+            <li>Optimisation des réseaux VRD (secs et humides)</li>
+            <li>Suivi technique en bureau d’études et sur chantier</li>
+            <li>Participation aux réunions de coordination technique</li>
+            <li>Suivi de la production d’éléments préfabriqués en béton</li>
+          </ul>
+        </div>
 
-</div>
-</div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3>Stage Conducteur de Travaux</h3>
+            <span class="date">2019 – 2020</span>
+          </div>
+          <div class="exp-sub">Espace Rénovation</div>
+          <ul>
+            <li>Réalisation de métrés et d’études quantitatives</li>
+            <li>Analyse technique des offres des entreprises</li>
+            <li>Implantation et contrôle géométrique des ouvrages</li>
+            <li>Vérification de la conformité réglementaire sur le chantier</li>
+          </ul>
+        </div>
+      </section>
 
-<script>
-function downloadPDF(){
-  const element=document.getElementById("cv-content");
-  html2pdf().set({
-    margin:0,
-    filename:"CV_Aymane_Abidine.pdf",
-    html2canvas:{scale:3},
-    jsPDF:{format:"a4",orientation:"portrait"}
-  }).from(element).save();
-}
-</script>
+      <!-- FORMATION -->
+      <section class="section">
+        <div class="section-title">Formation</div>
+        <div class="edu-item"><strong>Master Génie Civil – Structures</strong> <span class="edu-date">Université Lyon 1 (2024 – 2025)</span></div>
+        <div class="edu-item"><strong>Licence Génie Civil</strong> <span class="edu-date">Université Lyon 1 (2021 – 2022)</span></div>
+        <div class="edu-item"><strong>BTS Études et Économie de la Construction</strong> <span class="edu-date">(2015 – 2016)</span></div>
+      </section>
+
+      <!-- PROJETS ACADÉMIQUES -->
+      <section class="section">
+        <div class="section-title">Projets académiques</div>
+        <ul class="project-grid">
+          <li>Dimensionnement complet d’un bâtiment R+5 en béton armé</li>
+          <li>Étude d’une structure mixte acier-béton</li>
+          <li>Analyse sismique et modélisation 3D</li>
+          <li>Étude de stabilité globale et de contreventement</li>
+        </ul>
+      </section>
+
+    </main>
+
+  </div>
+  <!-- ===== FIN CV ===== -->
+
+  <div class="download-btn">
+    <button onclick="downloadPDF()">📄 Télécharger le CV en PDF (A4)</button>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      document.body.classList.add('pdf-mode');
+
+      const element = document.getElementById('cv-content');
+
+      const opt = {
+        margin: 0,
+        filename: 'CV_Aymane_Abidine.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: {
+          scale: 3,
+          useCORS: true,
+          letterRendering: true,
+          logging: false
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait'
+        }
+      };
+
+      html2pdf()
+        .set(opt)
+        .from(element)
+        .save()
+        .then(() => {
+          document.body.classList.remove('pdf-mode');
+        });
+    }
+  </script>
 
 </body>
 </html>
