@@ -7,7 +7,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
   </script>
   <style>
-    /* ===== RESET ===== */
     * {
       margin: 0;
       padding: 0;
@@ -168,7 +167,7 @@
     }
 
     /* ================================================================ */
-    /* ===== MODE PDF (activé par la classe .pdf-mode sur le body) ===== */
+    /* ===== MODE PDF - AVEC VOTRE CSS EXACT ===== */
     /* ================================================================ */
     .pdf-mode {
       background: white !important;
@@ -177,37 +176,40 @@
     }
 
     .pdf-mode #cv-content {
+      /* ===== VOTRE CSS EXACT ===== */
       width: 210mm;
-      height: 297mm;
-      padding: 3mm 10mm 3mm 10mm;
+      min-height: 297mm;
+      background: white;
+      padding: 8mm 10mm;
+      margin: auto;
+
+      /* Ajustements supplémentaires pour la capture */
       box-shadow: none !important;
       border-radius: 0 !important;
       overflow: hidden;
-      margin: 0 auto;
       max-width: 100%;
-      background: white;
     }
 
-    /* ---- COMPACTAGE EXTREME POUR TOUT FAIRE TENIR ---- */
+    /* ---- COMPACTAGE POUR TENIR AVEC 8mm DE PADDING ---- */
     .pdf-mode #cv-content .name {
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.0;
     }
 
     .pdf-mode #cv-content .title {
-      font-size: 7.5px;
+      font-size: 7px;
       margin-top: 0px;
       line-height: 1.0;
     }
 
     .pdf-mode #cv-content .subinfo {
-      font-size: 6.5px;
+      font-size: 6px;
       margin-top: 0px;
       line-height: 1.0;
     }
 
     .pdf-mode #cv-content .contact {
-      font-size: 6.5px;
+      font-size: 6px;
       line-height: 1.1;
     }
 
@@ -218,7 +220,7 @@
     }
 
     .pdf-mode #cv-content .section-title {
-      font-size: 7px;
+      font-size: 6.5px;
       margin-top: 1.5px;
       margin-bottom: 0.5px;
       padding-bottom: 0.5px;
@@ -227,20 +229,20 @@
     }
 
     .pdf-mode #cv-content p {
-      font-size: 6px;
+      font-size: 5.8px;
       line-height: 1.0;
       margin: 0;
     }
 
     .pdf-mode #cv-content li {
-      font-size: 5.8px;
+      font-size: 5.5px;
       line-height: 1.0;
     }
 
     .pdf-mode #cv-content ul {
       margin-top: 0px;
       margin-bottom: 0.5px;
-      padding-left: 8px;
+      padding-left: 7px;
     }
 
     .pdf-mode #cv-content ul li {
@@ -248,13 +250,13 @@
     }
 
     .pdf-mode #cv-content .job-title {
-      font-size: 6.5px;
+      font-size: 6px;
       margin-top: 1.5px;
       line-height: 1.0;
     }
 
     .pdf-mode #cv-content .date {
-      font-size: 6px;
+      font-size: 5.8px;
     }
 
     .pdf-mode .footer-row {
@@ -263,7 +265,7 @@
     }
 
     .pdf-mode .footer-row .section-title {
-      font-size: 7px;
+      font-size: 6.5px;
       margin-top: 1px;
       margin-bottom: 0.5px;
       padding-bottom: 0.5px;
@@ -272,17 +274,17 @@
     .pdf-mode .footer-row ul {
       margin-top: 0px;
       margin-bottom: 0.5px;
-      padding-left: 8px;
+      padding-left: 7px;
     }
 
     .pdf-mode .footer-row ul li {
-      font-size: 5.8px;
+      font-size: 5.5px;
       line-height: 1.0;
       margin-bottom: 0px;
     }
 
     .pdf-mode .footer-row p {
-      font-size: 5.8px;
+      font-size: 5.5px;
       line-height: 1.0;
       margin: 0;
     }
