@@ -2,10 +2,10 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>CV Aymane Abidine</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
@@ -16,130 +16,159 @@
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #e6e9ef;
-  color: #1e2b3a;
-  padding: 25px;
+  font-family: "Inter", Arial, sans-serif;
+  background: #eef2f7;
+  padding: 30px;
+  color: #111827;
 }
 
+/* BUTTON */
 .download-btn {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .download-btn button {
-  background: #1e2b3a;
+  background: #111827;
   color: white;
   border: none;
-  padding: 12px 28px;
+  padding: 12px 26px;
   border-radius: 10px;
-  cursor: pointer;
   font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.cv-container {
+.download-btn button:hover {
+  transform: translateY(-2px);
+  background: #0b1220;
+}
+
+/* CV */
+.cv {
   max-width: 1100px;
   margin: auto;
   background: white;
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 32% 68%;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.10);
 }
 
-/* SIDEBAR */
-.sidebar {
-  background: #1e2b3a;
-  color: #eef2f7;
-  padding: 30px 22px;
+/* LEFT */
+.left {
+  background: #0f172a;
+  color: white;
+  padding: 32px 24px;
 }
 
-.sidebar h1 {
+.name {
   font-size: 22px;
-  margin-bottom: 4px;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
-.sidebar .title {
+.role {
   font-size: 13px;
-  color: #b6c9e0;
-  margin-bottom: 14px;
-  border-bottom: 1px solid #3d5068;
-  padding-bottom: 10px;
+  color: #cbd5e1;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.block-title {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 18px 0 10px;
+}
+
+.contact p,
+.left li {
+  font-size: 12.5px;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.left ul {
+  list-style: none;
+}
+
+.left li::before {
+  content: "▸";
+  color: #64748b;
+  margin-right: 6px;
+}
+
+/* RIGHT */
+.right {
+  padding: 32px;
 }
 
 .section-title {
   font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin: 18px 0 10px;
-  color: #b6c9e0;
-  border-bottom: 1px solid #3d5068;
-  padding-bottom: 6px;
-}
-
-.contact-item, .skill-list li {
-  font-size: 13px;
-  margin-bottom: 6px;
-  color: #dce4ed;
-}
-
-/* MAIN */
-.main {
-  padding: 30px;
-}
-
-.main .section-title {
-  font-size: 14px;
   font-weight: 700;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  border-bottom: 3px solid #1e2b3a;
-  margin-bottom: 10px;
-  padding-bottom: 4px;
+  border-left: 3px solid #0f172a;
+  padding-left: 8px;
+  margin: 18px 0 10px;
 }
 
 .profile {
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 15px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1f2937;
 }
 
 /* EXPERIENCE */
 .exp {
   margin-bottom: 14px;
+  padding-left: 10px;
+  border-left: 2px solid #e5e7eb;
 }
 
 .exp h3 {
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .exp .sub {
-  color: #2c5a7a;
-  font-weight: 600;
+  font-size: 12.5px;
+  color: #2563eb;
   margin-bottom: 6px;
 }
 
 .exp ul {
-  padding-left: 18px;
+  padding-left: 16px;
 }
 
-.exp ul li {
-  font-size: 13px;
+.exp li {
+  font-size: 12.8px;
   margin-bottom: 4px;
+  color: #374151;
 }
 
 /* GRID */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 18px;
+}
+
+/* EDUCATION */
+.edu p {
+  font-size: 13px;
+  margin-bottom: 6px;
 }
 
 /* PRINT */
 @media print {
-  .download-btn { display: none; }
   body { background: white; padding: 0; }
-  .cv-container { box-shadow: none; }
+  .download-btn { display: none; }
+  .cv { box-shadow: none; }
 }
 </style>
 </head>
@@ -150,100 +179,93 @@ body {
   <button onclick="downloadPDF()">📄 Télécharger PDF</button>
 </div>
 
-<div class="cv-container" id="cv">
+<div class="cv" id="cv">
 
-<!-- SIDEBAR -->
-<div class="sidebar">
+<!-- LEFT -->
+<div class="left">
 
-  <h1>Aymane Abidine</h1>
-  <div class="title">Ingénieur Génie Civil | Structures Béton Armé | Études EXE</div>
+  <div class="name">Aymane Abidine</div>
+  <div class="role">
+    Ingénieur Génie Civil<br>
+    Structures Béton Armé | Études EXE
+  </div>
 
-  <div class="section-title">Contact</div>
-  <div class="contact-item">📍 Villeurbanne</div>
-  <div class="contact-item">📞 06 67 56 63 01</div>
-  <div class="contact-item">✉️ aymane.abidine@gmail.com</div>
-  <div class="contact-item">🔗 LinkedIn</div>
+  <div class="block-title">Contact</div>
+  <div class="contact">
+    <p>📍 Villeurbanne</p>
+    <p>📞 06 67 56 63 01</p>
+    <p>✉️ aymane.abidine@gmail.com</p>
+    <p>🔗 LinkedIn</p>
+  </div>
 
-  <div class="section-title">Compétences clés</div>
-  <ul class="skill-list">
+  <div class="block-title">Compétences</div>
+  <ul>
     <li>Études EXE bâtiment</li>
-    <li>Structures béton armé</li>
-    <li>Eurocodes (EC2 / EC8)</li>
+    <li>Béton armé / Eurocodes</li>
     <li>Plans de ferraillage</li>
-    <li>Interfaces structure / enveloppe</li>
-    <li>Coordination MOE / entreprise</li>
-    <li>Suivi technique chantier</li>
-    <li>Contrôle conformité / DOE</li>
+    <li>Interfaces structure</li>
+    <li>Coordination MOE</li>
+    <li>Suivi chantier</li>
+    <li>DOE / conformité</li>
   </ul>
 
-  <div class="section-title">Logiciels</div>
-  <ul class="skill-list">
+  <div class="block-title">Logiciels</div>
+  <ul>
     <li>AutoCAD</li>
-    <li>Robot Structural Analysis</li>
+    <li>Robot Structural</li>
     <li>ETABS</li>
     <li>Plaxis</li>
-    <li>Revit Structure (notions)</li>
     <li>Excel avancé</li>
   </ul>
 
 </div>
 
-<!-- MAIN -->
-<div class="main">
+<!-- RIGHT -->
+<div class="right">
 
   <div class="section-title">Profil</div>
   <p class="profile">
-    Ingénieur en génie civil spécialisé en structures béton armé et études d’exécution (EXE), avec expérience en bureau d’études et suivi de chantier sur projets de bâtiment.
-    Intervention sur phases conception et exécution avec maîtrise des Eurocodes, du dimensionnement structurel et des interfaces techniques bâtiment.
+    Ingénieur en génie civil spécialisé en structures béton armé et études d’exécution (EXE).
+    Expérience en bureau d’études et suivi de chantier sur projets bâtiment.
+    Intervention en phases conception et exécution avec maîtrise des Eurocodes et des interfaces techniques.
   </p>
 
-  <div class="section-title">Expérience professionnelle</div>
+  <div class="section-title">Expérience</div>
 
   <div class="exp">
     <h3>Ingénieur Bureau d’Études</h3>
     <div class="sub">Alpha Group (Étanchéité) — 2025</div>
     <ul>
-      <li>Études EXE sur systèmes d’étanchéité (toitures, terrasses, ouvrages enterrés)</li>
-      <li>Analyse des interfaces structure / enveloppe du bâtiment</li>
-      <li>Réalisation et mise à jour de détails techniques d’exécution</li>
-      <li>Contrôle de conformité des plans et adaptation aux contraintes chantier</li>
-      <li>Gestion des DOE et suivi des non-conformités</li>
-      <li>Coordination technique MOE / entreprises travaux</li>
+      <li>Études EXE sur systèmes d’étanchéité (toitures, terrasses)</li>
+      <li>Analyse interfaces structure / enveloppe</li>
+      <li>Gestion DOE et non-conformités</li>
+      <li>Coordination technique MOE / entreprises</li>
     </ul>
   </div>
 
   <div class="exp">
     <h3>Assistant Chargé d’Affaires</h3>
-    <div class="sub">Unistrain — 2020 / 2021</div>
+    <div class="sub">Unistrain — 2020/2021</div>
     <ul>
-      <li>Plans de ferraillage sous AutoCAD</li>
-      <li>Études techniques en béton armé</li>
-      <li>Suivi technique chantier</li>
-      <li>Coordination des interfaces travaux</li>
-    </ul>
-  </div>
-
-  <div class="exp">
-    <h3>Stage Conducteur de Travaux</h3>
-    <div class="sub">Espace Rénovation</div>
-    <ul>
-      <li>Métrés et études quantitatives</li>
-      <li>Contrôle géométrique et suivi d’exécution</li>
-      <li>Analyse technique des ouvrages</li>
+      <li>Plans de ferraillage AutoCAD</li>
+      <li>Études structure béton armé</li>
+      <li>Suivi chantier</li>
     </ul>
   </div>
 
   <div class="section-title">Formation</div>
-  <p>Master Génie Civil — Université Lyon 1 (2024–2025)</p>
-  <p>Licence Génie Civil — Université Lyon 1 (2021–2022)</p>
-  <p>BTS Études et Économie de la Construction</p>
+  <div class="edu">
+    <p><b>Master Génie Civil</b> — Lyon 1 (2024–2025)</p>
+    <p><b>Licence Génie Civil</b> — Lyon 1</p>
+    <p><b>BTS Études et Économie de la Construction</b></p>
+  </div>
 
-  <div class="section-title">Projets académiques</div>
+  <div class="section-title">Projets</div>
   <ul>
-    <li>Dimensionnement R+5 béton armé selon Eurocodes</li>
-    <li>Analyse sismique et modélisation 3D</li>
-    <li>Étude structure mixte acier-béton</li>
-    <li>Stabilité et contreventement</li>
+    <li>R+5 béton armé Eurocodes</li>
+    <li>Analyse sismique 3D</li>
+    <li>Structure mixte acier-béton</li>
+    <li>Stabilité / contreventement</li>
   </ul>
 
 </div>
