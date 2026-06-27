@@ -7,6 +7,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
   </script>
   <style>
+    /* ===== RESET ===== */
     * {
       margin: 0;
       padding: 0;
@@ -21,7 +22,6 @@
       align-items: center;
       padding: 30px 20px;
       min-height: 100vh;
-      transition: background 0.2s;
     }
 
     /* ===== AFFICHAGE ÉCRAN (grand et lisible) ===== */
@@ -167,8 +167,51 @@
     }
 
     /* ================================================================ */
-    /* ===== MODE PDF - AVEC VOTRE CSS EXACT ===== */
+    /* ===== STYLES POUR L'IMPRESSION / PDF (commun) ===== */
     /* ================================================================ */
+
+    /* 1. Pour l'impression navigateur (Ctrl+P) */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      #cv-content {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 10mm;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0 auto;
+      }
+
+      .download-btn {
+        display: none !important;
+      }
+
+      /* Styles compact pour le print */
+      #cv-content .name { font-size: 16px; }
+      #cv-content .title { font-size: 9px; margin-top: 1px; }
+      #cv-content .subinfo { font-size: 8px; margin-top: 0px; }
+      #cv-content .contact { font-size: 8px; line-height: 1.2; }
+      #cv-content .header { padding-bottom: 4px; margin-bottom: 4px; border-bottom-width: 1px; }
+      #cv-content .section-title { font-size: 8px; margin-top: 4px; margin-bottom: 1.5px; padding-bottom: 1px; border-bottom-width: 1px; }
+      #cv-content p { font-size: 7.5px; line-height: 1.1; margin: 0; }
+      #cv-content li { font-size: 7px; line-height: 1.0; }
+      #cv-content ul { margin-top: 0px; margin-bottom: 1px; padding-left: 10px; }
+      #cv-content ul li { margin-bottom: 0px; }
+      #cv-content .job-title { font-size: 7.5px; margin-top: 2px; }
+      #cv-content .date { font-size: 7px; }
+      .footer-row { gap: 6px; margin-top: 2px; }
+      .footer-row .section-title { font-size: 8px; margin-top: 2px; margin-bottom: 1px; padding-bottom: 1px; }
+      .footer-row ul { margin-top: 0px; margin-bottom: 0.5px; padding-left: 10px; }
+      .footer-row ul li { font-size: 7px; line-height: 1.0; margin-bottom: 0px; }
+      .footer-row p { font-size: 7px; line-height: 1.0; margin: 0; }
+    }
+
+    /* 2. Pour html2canvas (classe activée en JS) */
     .pdf-mode {
       background: white !important;
       padding: 0 !important;
@@ -176,118 +219,34 @@
     }
 
     .pdf-mode #cv-content {
-      /* ===== VOTRE CSS EXACT ===== */
       width: 210mm;
       min-height: 297mm;
-      background: white;
-      padding: 8mm 10mm;
-      margin: auto;
-
-      /* Ajustements supplémentaires pour la capture */
+      padding: 10mm;
       box-shadow: none !important;
       border-radius: 0 !important;
       overflow: hidden;
+      margin: 0 auto;
       max-width: 100%;
     }
 
-    /* ---- COMPACTAGE POUR TENIR AVEC 8mm DE PADDING ---- */
-    .pdf-mode #cv-content .name {
-      font-size: 13px;
-      line-height: 1.0;
-    }
-
-    .pdf-mode #cv-content .title {
-      font-size: 7px;
-      margin-top: 0px;
-      line-height: 1.0;
-    }
-
-    .pdf-mode #cv-content .subinfo {
-      font-size: 6px;
-      margin-top: 0px;
-      line-height: 1.0;
-    }
-
-    .pdf-mode #cv-content .contact {
-      font-size: 6px;
-      line-height: 1.1;
-    }
-
-    .pdf-mode #cv-content .header {
-      padding-bottom: 2px;
-      margin-bottom: 2px;
-      border-bottom-width: 0.8px;
-    }
-
-    .pdf-mode #cv-content .section-title {
-      font-size: 6.5px;
-      margin-top: 1.5px;
-      margin-bottom: 0.5px;
-      padding-bottom: 0.5px;
-      border-bottom-width: 0.8px;
-      letter-spacing: 0.2px;
-    }
-
-    .pdf-mode #cv-content p {
-      font-size: 5.8px;
-      line-height: 1.0;
-      margin: 0;
-    }
-
-    .pdf-mode #cv-content li {
-      font-size: 5.5px;
-      line-height: 1.0;
-    }
-
-    .pdf-mode #cv-content ul {
-      margin-top: 0px;
-      margin-bottom: 0.5px;
-      padding-left: 7px;
-    }
-
-    .pdf-mode #cv-content ul li {
-      margin-bottom: 0px;
-    }
-
-    .pdf-mode #cv-content .job-title {
-      font-size: 6px;
-      margin-top: 1.5px;
-      line-height: 1.0;
-    }
-
-    .pdf-mode #cv-content .date {
-      font-size: 5.8px;
-    }
-
-    .pdf-mode .footer-row {
-      gap: 4px;
-      margin-top: 1px;
-    }
-
-    .pdf-mode .footer-row .section-title {
-      font-size: 6.5px;
-      margin-top: 1px;
-      margin-bottom: 0.5px;
-      padding-bottom: 0.5px;
-    }
-
-    .pdf-mode .footer-row ul {
-      margin-top: 0px;
-      margin-bottom: 0.5px;
-      padding-left: 7px;
-    }
-
-    .pdf-mode .footer-row ul li {
-      font-size: 5.5px;
-      line-height: 1.0;
-      margin-bottom: 0px;
-    }
-
-    .pdf-mode .footer-row p {
-      font-size: 5.5px;
-      line-height: 1.0;
-      margin: 0;
-    }
+    /* ---- Compactage (identique à @media print) ---- */
+    .pdf-mode #cv-content .name { font-size: 16px; line-height: 1.0; }
+    .pdf-mode #cv-content .title { font-size: 9px; margin-top: 1px; line-height: 1.0; }
+    .pdf-mode #cv-content .subinfo { font-size: 8px; margin-top: 0px; line-height: 1.0; }
+    .pdf-mode #cv-content .contact { font-size: 8px; line-height: 1.2; }
+    .pdf-mode #cv-content .header { padding-bottom: 4px; margin-bottom: 4px; border-bottom-width: 1px; }
+    .pdf-mode #cv-content .section-title { font-size: 8px; margin-top: 4px; margin-bottom: 1.5px; padding-bottom: 1px; border-bottom-width: 1px; letter-spacing: 0.3px; }
+    .pdf-mode #cv-content p { font-size: 7.5px; line-height: 1.1; margin: 0; }
+    .pdf-mode #cv-content li { font-size: 7px; line-height: 1.0; }
+    .pdf-mode #cv-content ul { margin-top: 0px; margin-bottom: 1px; padding-left: 10px; }
+    .pdf-mode #cv-content ul li { margin-bottom: 0px; }
+    .pdf-mode #cv-content .job-title { font-size: 7.5px; margin-top: 2px; line-height: 1.0; }
+    .pdf-mode #cv-content .date { font-size: 7px; }
+    .pdf-mode .footer-row { gap: 6px; margin-top: 2px; }
+    .pdf-mode .footer-row .section-title { font-size: 8px; margin-top: 2px; margin-bottom: 1px; padding-bottom: 1px; }
+    .pdf-mode .footer-row ul { margin-top: 0px; margin-bottom: 0.5px; padding-left: 10px; }
+    .pdf-mode .footer-row ul li { font-size: 7px; line-height: 1.0; margin-bottom: 0px; }
+    .pdf-mode .footer-row p { font-size: 7px; line-height: 1.0; margin: 0; }
 
     /* ===== RESPONSIVE ÉCRAN ===== */
     @media screen and (max-width: 950px) {
@@ -428,7 +387,7 @@
           <li>Français (courant)</li>
           <li>Anglais (technique)</li>
         </ul>
-        <div class="section-title" style="margin-top:1px;">Centres d'intérêt</div>
+        <div class="section-title" style="margin-top:2px;">Centres d'intérêt</div>
         <ul>
           <li>Construction durable</li>
           <li>Innovation en génie civil</li>
@@ -446,19 +405,19 @@
 
   <script>
     function downloadPDF() {
-      // 1. Activer le mode PDF (styles ultra-compacts)
+      // 1. Activer le mode PDF (styles identiques à @media print)
       document.body.classList.add('pdf-mode');
 
       // 2. Récupérer l'élément
       const element = document.getElementById('cv-content');
 
-      // 3. Configuration (sans width/height fixes)
+      // 3. Configuration simplifiée (sans width/height fixes)
       const opt = {
         margin: 0,
         filename: 'CV_Aymane_Abidine.pdf',
         image: { type: 'jpeg', quality: 1 },
         html2canvas: {
-          scale: 3, // Qualité d'impression exceptionnelle
+          scale: 3,
           useCORS: true,
           letterRendering: true,
           logging: false
@@ -476,7 +435,7 @@
         .from(element)
         .save()
         .then(() => {
-          // 5. Désactiver le mode PDF après téléchargement
+          // 5. Désactiver le mode PDF
           document.body.classList.remove('pdf-mode');
         });
     }
