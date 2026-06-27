@@ -203,7 +203,6 @@
     .main .section {
       margin-bottom: 20px;
     }
-
     .main .section:last-child {
       margin-bottom: 0;
     }
@@ -326,7 +325,7 @@
     }
 
     /* ================================================================ */
-    /* ===== MODE PDF - ADAPTATION POUR UNE SEULE PAGE ===== */
+    /* ===== MODE PDF - VERSION AGRANDIE POUR REMPLIR LA PAGE ===== */
     /* ================================================================ */
 
     /* 1. Impression navigateur */
@@ -353,155 +352,156 @@
         margin: 0 auto;
       }
 
-      /* Colonne gauche */
+      /* ---- Colonne gauche ---- */
       .sidebar {
-        padding: 8mm 5mm;
-        gap: 6mm;
+        padding: 10mm 7mm;
+        gap: 5mm;
         background: #1e2b3a !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
       }
 
       .sidebar .photo-placeholder i {
-        font-size: 36px;
+        font-size: 40px;
         padding: 8px;
       }
 
       .sidebar h1 {
-        font-size: 16px;
+        font-size: 18px;
       }
 
       .sidebar .title {
-        font-size: 9px;
-        padding-bottom: 5px;
-        margin-bottom: 3px;
+        font-size: 10px;
+        padding-bottom: 6px;
+        margin-bottom: 4px;
       }
 
       .sidebar .section-title {
-        font-size: 8.5px;
-        margin-bottom: 5px;
-        padding-bottom: 3px;
+        font-size: 9.5px;
+        margin-bottom: 6px;
+        padding-bottom: 4px;
       }
-
       .sidebar .section-title i {
-        font-size: 8px;
+        font-size: 9px;
       }
 
       .contact-item {
-        font-size: 8px;
-        gap: 5px;
-        margin-bottom: 4px;
+        font-size: 9px;
+        gap: 6px;
+        margin-bottom: 5px;
       }
       .contact-item i {
-        font-size: 8px;
-        width: 14px;
+        font-size: 9px;
+        width: 16px;
       }
 
       .sidebar .skill-list li {
-        font-size: 8px;
-        padding: 2px 0;
-        gap: 4px;
+        font-size: 9px;
+        padding: 3px 0;
+        gap: 5px;
       }
       .sidebar .skill-list li i {
-        font-size: 6px;
-        width: 10px;
+        font-size: 7px;
+        width: 12px;
       }
 
       .sidebar .lang-item {
-        font-size: 8px;
-        padding: 2px 0;
+        font-size: 9px;
+        padding: 3px 0;
       }
 
       .sidebar .interest-list li {
-        font-size: 8px;
-        padding: 1px 8px;
+        font-size: 9px;
+        padding: 2px 10px;
+        background: #2a3a4d !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
 
-      /* Colonne droite */
+      /* ---- Colonne droite ---- */
       .main {
-        padding: 8mm 6mm 6mm 6mm;
+        padding: 10mm 8mm 8mm 8mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
       }
 
       .main .section {
         margin-bottom: 4mm;
       }
+      .main .section:last-child {
+        margin-bottom: 0;
+      }
 
       .main .section-title {
-        font-size: 9.5px;
-        padding-bottom: 2px;
-        margin-bottom: 4px;
+        font-size: 10.5px;
+        padding-bottom: 3px;
+        margin-bottom: 5px;
         border-bottom-width: 2px;
       }
 
       .main .profile-text {
-        font-size: 8.5px;
-        line-height: 1.3;
+        font-size: 9.5px;
+        line-height: 1.4;
       }
 
       .exp-item {
-        margin-bottom: 3mm;
+        margin-bottom: 3.5mm;
+      }
+      .exp-item:last-child {
+        margin-bottom: 0;
       }
 
       .exp-header h3 {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       .exp-header .date {
-        font-size: 7.5px;
-        padding: 0 6px;
+        font-size: 8.5px;
+        padding: 0 8px;
       }
 
       .exp-sub {
-        font-size: 8px;
-        margin-bottom: 1px;
+        font-size: 9px;
+        margin-bottom: 2px;
       }
 
       .exp-item ul li {
-        font-size: 8px;
-        line-height: 1.3;
-        padding: 0.5px 0 0.5px 14px;
+        font-size: 9px;
+        line-height: 1.35;
+        padding: 1px 0 1px 16px;
       }
 
       .edu-item {
-        font-size: 8.5px;
-        padding: 2px 0;
+        font-size: 9.5px;
+        padding: 3px 0;
       }
       .edu-item .edu-date {
-        font-size: 8px;
+        font-size: 9px;
       }
 
       .project-grid {
-        gap: 2px 12px;
+        gap: 3px 14px;
       }
       .project-grid li {
-        font-size: 8px;
-        line-height: 1.3;
-        padding: 1px 0 1px 12px;
+        font-size: 9px;
+        line-height: 1.35;
+        padding: 1.5px 0 1.5px 14px;
       }
 
       /* Couleurs print */
-      .sidebar .title {
-        color: #b6c9e0 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
+      .sidebar .title,
       .sidebar .section-title {
         color: #b6c9e0 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
-      .contact-item i {
-        color: #8ba3c0 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
+      .contact-item i,
       .sidebar .skill-list li i {
         color: #8ba3c0 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      .sidebar .interest-list li {
-        background: #2a3a4d !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -512,7 +512,7 @@
       }
     }
 
-    /* 2. Mode pdf-mode (pour html2canvas) – identique à @media print */
+    /* 2. Mode pdf-mode (pour html2canvas) */
     .pdf-mode {
       background: white !important;
       padding: 0 !important;
@@ -531,128 +531,140 @@
       margin: 0 auto;
     }
 
+    /* ---- Colonne gauche ---- */
     .pdf-mode .sidebar {
-      padding: 8mm 5mm;
-      gap: 6mm;
+      padding: 10mm 7mm;
+      gap: 5mm;
       background: #1e2b3a !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .pdf-mode .sidebar .photo-placeholder i {
-      font-size: 36px;
+      font-size: 40px;
       padding: 8px;
     }
 
     .pdf-mode .sidebar h1 {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .pdf-mode .sidebar .title {
-      font-size: 9px;
-      padding-bottom: 5px;
-      margin-bottom: 3px;
+      font-size: 10px;
+      padding-bottom: 6px;
+      margin-bottom: 4px;
       color: #b6c9e0 !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
 
     .pdf-mode .sidebar .section-title {
-      font-size: 8.5px;
-      margin-bottom: 5px;
-      padding-bottom: 3px;
+      font-size: 9.5px;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
       color: #b6c9e0 !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
-
     .pdf-mode .sidebar .section-title i {
-      font-size: 8px;
+      font-size: 9px;
     }
 
     .pdf-mode .contact-item {
-      font-size: 8px;
-      gap: 5px;
-      margin-bottom: 4px;
+      font-size: 9px;
+      gap: 6px;
+      margin-bottom: 5px;
     }
     .pdf-mode .contact-item i {
-      font-size: 8px;
-      width: 14px;
+      font-size: 9px;
+      width: 16px;
       color: #8ba3c0 !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
 
     .pdf-mode .sidebar .skill-list li {
-      font-size: 8px;
-      padding: 2px 0;
-      gap: 4px;
+      font-size: 9px;
+      padding: 3px 0;
+      gap: 5px;
     }
     .pdf-mode .sidebar .skill-list li i {
-      font-size: 6px;
-      width: 10px;
+      font-size: 7px;
+      width: 12px;
       color: #8ba3c0 !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
 
     .pdf-mode .sidebar .lang-item {
-      font-size: 8px;
-      padding: 2px 0;
+      font-size: 9px;
+      padding: 3px 0;
     }
 
     .pdf-mode .sidebar .interest-list li {
-      font-size: 8px;
-      padding: 1px 8px;
+      font-size: 9px;
+      padding: 2px 10px;
       background: #2a3a4d !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
 
+    /* ---- Colonne droite ---- */
     .pdf-mode .main {
-      padding: 8mm 6mm 6mm 6mm;
+      padding: 10mm 8mm 8mm 8mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .pdf-mode .main .section {
       margin-bottom: 4mm;
     }
+    .pdf-mode .main .section:last-child {
+      margin-bottom: 0;
+    }
 
     .pdf-mode .main .section-title {
-      font-size: 9.5px;
-      padding-bottom: 2px;
-      margin-bottom: 4px;
+      font-size: 10.5px;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
       border-bottom-width: 2px;
     }
 
     .pdf-mode .main .profile-text {
-      font-size: 8.5px;
-      line-height: 1.3;
+      font-size: 9.5px;
+      line-height: 1.4;
     }
 
     .pdf-mode .exp-item {
-      margin-bottom: 3mm;
+      margin-bottom: 3.5mm;
+    }
+    .pdf-mode .exp-item:last-child {
+      margin-bottom: 0;
     }
 
     .pdf-mode .exp-header h3 {
-      font-size: 9px;
+      font-size: 10px;
     }
 
     .pdf-mode .exp-header .date {
-      font-size: 7.5px;
-      padding: 0 6px;
+      font-size: 8.5px;
+      padding: 0 8px;
     }
 
     .pdf-mode .exp-sub {
-      font-size: 8px;
-      margin-bottom: 1px;
+      font-size: 9px;
+      margin-bottom: 2px;
     }
 
     .pdf-mode .exp-item ul li {
-      font-size: 8px;
-      line-height: 1.3;
-      padding: 0.5px 0 0.5px 14px;
+      font-size: 9px;
+      line-height: 1.35;
+      padding: 1px 0 1px 16px;
     }
-
     .pdf-mode .exp-item ul li::before {
       color: #1e2b3a !important;
       -webkit-print-color-adjust: exact !important;
@@ -660,20 +672,20 @@
     }
 
     .pdf-mode .edu-item {
-      font-size: 8.5px;
-      padding: 2px 0;
+      font-size: 9.5px;
+      padding: 3px 0;
     }
     .pdf-mode .edu-item .edu-date {
-      font-size: 8px;
+      font-size: 9px;
     }
 
     .pdf-mode .project-grid {
-      gap: 2px 12px;
+      gap: 3px 14px;
     }
     .pdf-mode .project-grid li {
-      font-size: 8px;
-      line-height: 1.3;
-      padding: 1px 0 1px 12px;
+      font-size: 9px;
+      line-height: 1.35;
+      padding: 1.5px 0 1.5px 14px;
     }
 
     /* --- RESPONSIVE ÉCRAN --- */
@@ -868,7 +880,6 @@
 
   <script>
     function downloadPDF() {
-      // 1. Activer le mode PDF
       document.body.classList.add('pdf-mode');
 
       const element = document.getElementById('cv-content');
