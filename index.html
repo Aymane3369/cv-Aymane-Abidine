@@ -109,7 +109,6 @@
       font-size: 12px;
     }
 
-    /* ===== FOOTER EN DEUX COLONNES ===== */
     .footer-row {
       display: flex;
       gap: 20px;
@@ -172,7 +171,7 @@
     }
 
     /* ================================================================ */
-    /* ===== MODE PDF - REPRODUIT EXACTEMENT L'EXEMPLE ===== */
+    /* ===== MODE PDF - EXTRA COMPACT (TOUT SUR UNE PAGE) ===== */
     /* ================================================================ */
     @media print {
       html,
@@ -185,7 +184,7 @@
       #cv-content {
         width: 210mm;
         height: 297mm;
-        padding: 4mm 11mm 4mm 11mm;
+        padding: 2mm 10mm 2mm 10mm;   /* marges minimales */
         box-shadow: none;
         border-radius: 0;
         display: flex;
@@ -194,59 +193,59 @@
         margin: 0 auto;
       }
 
-      /* ===== COMPACT ===== */
+      /* ===== TAILLES ULTRA COMPACTES ===== */
       #cv-content .name {
-        font-size: 15px;
+        font-size: 14px;
         line-height: 1.0;
       }
 
       #cv-content .title {
-        font-size: 8.5px;
+        font-size: 7.5px;
         margin-top: 0px;
         line-height: 1.0;
       }
 
       #cv-content .subinfo {
-        font-size: 7.5px;
+        font-size: 6.5px;
         margin-top: 0px;
         line-height: 1.0;
       }
 
       #cv-content .contact {
-        font-size: 7.5px;
-        line-height: 1.15;
+        font-size: 6.5px;
+        line-height: 1.1;
       }
 
       #cv-content .header {
-        padding-bottom: 3px;
-        margin-bottom: 3px;
-        border-bottom-width: 1px;
+        padding-bottom: 2px;
+        margin-bottom: 2px;
+        border-bottom-width: 0.8px;
       }
 
       #cv-content .section-title {
-        font-size: 8px;
-        margin-top: 3px;
-        margin-bottom: 1px;
-        padding-bottom: 1px;
+        font-size: 7px;
+        margin-top: 1.5px;
+        margin-bottom: 0.5px;
+        padding-bottom: 0.5px;
         border-bottom-width: 0.8px;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.2px;
       }
 
       #cv-content p {
-        font-size: 7px;
-        line-height: 1.1;
+        font-size: 6px;
+        line-height: 1.0;
         margin: 0;
       }
 
       #cv-content li {
-        font-size: 6.8px;
-        line-height: 1.05;
+        font-size: 5.8px;
+        line-height: 1.0;
       }
 
       #cv-content ul {
         margin-top: 0px;
-        margin-bottom: 1px;
-        padding-left: 10px;
+        margin-bottom: 0.5px;
+        padding-left: 8px;
       }
 
       #cv-content ul li {
@@ -254,42 +253,42 @@
       }
 
       #cv-content .job-title {
-        font-size: 7.5px;
-        margin-top: 2px;
-        line-height: 1.05;
+        font-size: 6.5px;
+        margin-top: 1.5px;
+        line-height: 1.0;
       }
 
       #cv-content .date {
-        font-size: 7px;
+        font-size: 6px;
       }
 
       .footer-row {
-        gap: 6px;
-        margin-top: 2px;
+        gap: 4px;
+        margin-top: 1px;
       }
 
       .footer-row .section-title {
-        font-size: 8px;
-        margin-top: 2px;
-        margin-bottom: 1px;
-        padding-bottom: 1px;
+        font-size: 7px;
+        margin-top: 1px;
+        margin-bottom: 0.5px;
+        padding-bottom: 0.5px;
       }
 
       .footer-row ul {
         margin-top: 0px;
         margin-bottom: 0.5px;
-        padding-left: 10px;
+        padding-left: 8px;
       }
 
       .footer-row ul li {
-        font-size: 6.8px;
-        line-height: 1.05;
+        font-size: 5.8px;
+        line-height: 1.0;
         margin-bottom: 0px;
       }
 
       .footer-row p {
-        font-size: 6.8px;
-        line-height: 1.05;
+        font-size: 5.8px;
+        line-height: 1.0;
         margin: 0;
       }
 
@@ -437,7 +436,7 @@
           <li>Français (courant)</li>
           <li>Anglais (technique)</li>
         </ul>
-        <div class="section-title" style="margin-top:2px;">Centres d'intérêt</div>
+        <div class="section-title" style="margin-top:1px;">Centres d'intérêt</div>
         <ul>
           <li>Construction durable</li>
           <li>Innovation en génie civil</li>
